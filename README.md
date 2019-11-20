@@ -1,4 +1,4 @@
-# WeQuick 接口规范
+# WeQuick 微信API 接口规范 （适合各个版本和形式的微信，适合新微信号和老微信号）
 ![alt logo](img/logo.png)
 
 ------
