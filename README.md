@@ -1,4 +1,4 @@
-# WeQuick 微信API 接口规范 （适合各个版本和形式的微信，适合新微信号和老微信号）
+# WeQuick 接口规范
 ![alt logo](img/logo.png)
 
 ------
@@ -20,7 +20,6 @@
     - [登陆二维码](#qrCode)
     - [登陆状态](#loginInfo)
     - [登陆后获取个人信息或者其他的信息](#loginAfterInfo)
-    - [初始化联系人列表](#InitializesContactList)
     - [好友列表详细信息](#friendsListDetails)
     - [获取群列表](#getGroupList)
     - [获取群成员列表](#getListGroupMembers)
@@ -29,7 +28,6 @@
     - [新建群后返回群id](#returnGroupId)
     - [同意好友](#acceptingFriend)
     - [获取v2](#getv2)
-    - [批量获取数据库微信头像](#getHeadPic)
     - [退出微信事件](#logout)
     - [手机退出微信触发事件](#phoneLogout)
 + [轮询消息接口](#recieve_msg)
@@ -54,11 +52,8 @@
         * [群邀请](#groupInvitation)
     - [其他操作](#other)
         * [获取登陆状态](#getLoginState)
-        * [网络获取wxid详细信息](#networkGetWxidInfo)
         * [登陆二维码](#loginQrCode)
         * [退出登陆微信](#getLogout)
-        * [批量获取wxid信息](#getWxidLists)
-        * [批量获取头像](#getHeadPics)
 + [商务合作](#cooperation)
 
 ------
@@ -78,7 +73,7 @@
 
 <a name="demo"></a>
 ## 接口服务端demo(python版)
-[https://github.com/juguang2018/WeQuick](https://github.com/juguang2018/WeQuick)
+[https://github.com/juguang2018/WeQuick](https://github.com/juguang2018/wequick)
 
 > (demo的原理是开启httpServer服务,处理客户端(WeQuick)发送过来的的http请求，然后返回相应的respone)
 
@@ -152,21 +147,6 @@
         "regionCode": "",
         "sign": ""
     }
-}
-```
-
-<a name="InitializesContactList"></a>
-### 初始化联系人列表 type:97
-```json
-{
-"data":{
-    "cgi": "/cgi-bin/micromsg-bin/initcontact",
-    "type": 97,
-    "processid": 6072,
-    "cwxid": "wxid_yfng437lnlygXXX",
-    "packLen": 1805,
-    "hex": "0A04080012001A6C76315F6533373965343937623666E676572",
-    },
 }
 ```
 
@@ -377,30 +357,6 @@
 }
 ```
 
-<a name="getHeadPic"></a>
-### 批量获取数据库微信头像 type:95
-```json
-{
-"data":
-    {
-        "type":95,
-        "processid":8844,
-        "cwxid":"wxid_yfng437lnlyXXX",
-        "userLists":
-        [
-            {
-            "wxid":"wxid_02p3fnfht9fXXX",
-            "sheadPic":"http://wx.qlogo.cn/mmhead/ver_1/rShNJBqC5k16YicKw/132"
-            },
-            {
-            "wxid":"wxid_ywoim7u92avXXX", 
-            "sheadPic":"http://wx.qlogo.cn/mmhead/ver_1/VBibdtib6icj5JhUnib0/132"
-            }
-        ]
-    }
-}
-```
-
 <a name="logout"></a>
 ### 退出微信事件 type:90
 ```json
@@ -441,25 +397,25 @@
 1. 发送文本消息：
 数据格式: 
 ```json
-{"api":"sendTextMessage", "code":1, "wxid":"wxid_qg0saisth0r2XXX", "text":"测试", "time":1}
+{"api":"sendTextMessage", "wxid":"wxid_qg0saisth0r2XXX", "text":"测试", "time":1}
 ```
 <a name="img"></a>
 2. 发送图片消息：
 数据格式: 
 ```json
-{"api":"sendPicMessage", "code":2, "wxid":"wxid_asdasdXXX", "imgPath":"图片路径", "time":1}
+{"api":"sendPicMessage", "wxid":"wxid_asdasdXXX", "imgPath":"图片路径", "time":1}
 ```
 <a name="file"></a>
 3. 发送文件：
 数据格式: 
 ```json
-{"api":"sendFileMessage", "code":25, "wxid":"wxid_asdasdXXX", "filePath":"文件路径", "time":1}
+{"api":"sendFileMessage", "wxid":"wxid_asdasdXXX", "filePath":"文件路径", "time":1}
 ```
 <a name="xml"></a>
-4. 发送xml消息
+4. 发送链接
 数据格式: 
 ```json
-{"api":"sendXmlMessage", "code":3, "wxid":"wxid_asdasdXXX", "title":"标题", "url":"url链接", "desc":"描述", "pic":"图片url链接", "time":1}
+{"api":"sendXmlMessage", "wxid":"wxid_asdasdXXX", "title":"标题", "url":"url链接", "desc":"描述", "pic":"图片url链接", "time":1}
 ```
 
 <a name="friendsOperation"></a>
@@ -468,33 +424,33 @@
 1. 获取联系人：
 数据格式:
 ```json
-{"api":"initContact", "code":45}
+{"api":"initContact"}
 ```
 <a name="addFriend"></a>
 2. 添加好友:
 数据格式:
 ```json
- {"api":"addUserEvent", "code":5, "wxid":"wxid_qg0saisth0r2XXX", "message":"您好"}
+ {"api":"addUserEvent", "wxid":"wxid_qg0saisth0r2XXX", "message":"您好"}
 ```
 <a name="destroyFriend"></a>
 3. 删除好友:
 数据格式:
 ```json
- {"api":"delUser", "code":17, "wxid":"wxid_qg0saisth0r2XXX"}
+ {"api":"delUser", "wxid":"wxid_qg0saisth0r2XXX"}
 ```
 <a name="queryFriendInfo"></a>
 4. 查询好友信息(一次最多五十人):
 数据格式:
 ```json
- {"api":"newGetUserLists", "code":46, "wxidLists":["wxid_qg0saisth0r2XXX", "asdad30XXX"]}
+ {"api":"newGetUserLists", "wxidLists":["wxid_qg0saisth0r2XXX", "asdad30XXX"]}
 ```
 
 <a name="agreeNewFriends"></a>
 
-5. 同意新好友
+5. 同意新好友（收到type78中msg.type=10000说明已经添加了好友）
 数据格式：
 ```json
-{"api":"acceptFriend", "code":10, "v1":"xxx", "v2":"xxx"}
+{"api":"acceptFriend", "v1":"xxx", "v2":"xxx"}
 ```
 使用详细介绍如图
 ![alt 同意新好友](img/02.png)
@@ -505,7 +461,7 @@
 1. 获取所有群列表:
 数据格式: 
 ```json
-{"api":"getChatRoomLists", "code":47}
+{"api":"getChatRoomLists"}
 ```
 <a name="editRoomName"></a>
 2. 修改群名称:
@@ -516,31 +472,31 @@
 3. 踢群成员:
 数据格式: 
 ```json
-{"api":"delChatRoomUser", "code":12, "chatroom":"237230488XXX@chatroom", "wxid":"dasfada30XXX"}
+{"api":"delChatRoomUser", "chatroom":"237230488XXX@chatroom", "wxid":"dasfada30XXX"}
 ```
 <a name="getRoomMembers"></a>
 4. 获取群成员列表:
 数据格式: 
 ```json
-{"api":"getChatRoomUserLists", "code":6, "wxid":"75101150XXX@chatroom"}
+{"api":"getChatRoomUserLists", "wxid":"75101150XXX@chatroom"}
 ```
 <a name="editRoomAsName"></a>
 5. 修改群备注名称(我在本群的昵称)
 数据格式: 
 ```json
-{"api":"updateRoomAsName", "code":44, "chatroom":"237230488XXX@chatroom", "name":"修改群备注名称测试"}
+{"api":"updateRoomAsName", "chatroom":"237230488XXX@chatroom", "name":"修改群备注名称测试"}
 ```
 <a name="getRoomMemberV2"></a>
 6. 获取群成员v2然后就可以加好友(返回type:88)
 数据格式：
 ```json
-{"api":"getRoomUserV2", "code":34, "chatroom":"75101150XXX@chatroom","wxid":"wxid_zxzs0isl4unhXXX"}
+{"api":"getRoomUserV2", "chatroom":"75101150XXX@chatroom","wxid":"wxid_zxzs0isl4unhXXX"}
 ```
 <a name="groupInvitation"></a>
 7. 群邀请
 数据格式：
 ```json
-{"api":"sendChatroom", "code":4, "wxid":"wxid_qg0saisth0r2XXX", "chatroom":"237230488XXX@chatroom"}
+{"api":"sendChatroom", "wxid":"wxid_qg0saisth0r2XXX", "chatroom":"237230488XXX@chatroom"}
 ```
 
 <a name="other"></a>
@@ -549,35 +505,22 @@
 1. 获取登陆状态
 数据格式：
 ```json
-{"api":"isLoginInfo", "code":8}
+{"api":"isLoginInfo"}
 ```
-<a name="networkGetWxidInfo"></a>
-2. 网络获取wxid详细信息
-数据格式：
-```json
-{"api":"netGetUserInfo", "code":30, "wxid":"xdasa30XXX"}
-```
+
 <a name="loginQrCode"></a>
-3. 登陆二维码
+2. 登陆二维码
 数据格式：
 ```json
-{"api":"getLoginQrCode", "code":36}
+{"api":"getLoginQrCode"}
 ```
+
 <a name="getLogout"></a>
-4. 退出登陆微信
+3. 退出登陆微信
 数据格式：
 ```json
-{"api":"outLogin","code":39}
+{"api":"outLogin"}
 ```
-<a name="getWxidLists"></a>
-5. 批量获取wxid信息
-
-更新中
-
-<a name="getHeadPics"></a>
-6. 批量获取头像
-
-更新中
 
 <a name="cooperation"></a>
 ## 商务合作
