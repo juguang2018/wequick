@@ -1,4 +1,3 @@
-# 个人微信号接口/穿透式协议/适配所有类型微信/适配最新版本/微及时
 # WeQuick 接口规范
 ![alt logo](img/logo.png)
 
@@ -37,6 +36,7 @@
         * [发送图片消息](#img)
         * [发送文件消息](#file)
         * [发送xml消息](#xml)
+        * [发送名片消息](#sendCard)
     - [好友操作](#friendsOperation)
         * [获取联系人](#getFriends)
         * [添加好友](#addFriend)
@@ -417,6 +417,13 @@
 数据格式: 
 ```json
 {"api":"sendXmlMessage", "wxid":"wxid_asdasdXXX", "title":"标题", "url":"url链接", "desc":"描述", "pic":"图片url链接", "time":1}
+```
+
+<a name="sendCard"></a>
+5. 发送名片
+数据格式：
+```json
+{"api":"sendCardMessage","wxid":"推荐名片的wxid","fwxid":"要发送的wxid"}
 ```
 
 <a name="friendsOperation"></a>
