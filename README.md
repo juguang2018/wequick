@@ -386,4 +386,152 @@
     "processid":6072,
     "cwxid":"wxid_yfng437lnlyxxx",
     "packLen":433,
-    "hex":"0A
+    "hex":"0AAC02089CFFFFFFFFFF00280038001A0608001000280032020800",
+    }
+}
+```
+
+<a name="recieve_msg"></a>
+## 二·轮询消息
+> 该接口是服务端定时轮询客户端(WeQuick)来执行服务端发出的任务，轮询时间可以自己设置，默认时间单位为秒，以下所有接口中字段time为非必须，加time字段可以单独控制某个任务发送的延迟时间。
+<a name="sendMessage"></a>
+### 发送消息:
+<a name="text"></a>
+1. 发送文本消息：
+数据格式: 
+```json
+{"api":"sendTextMessage", "wxid":"wxid_qg0saisth0r2XXX", "text":"测试", "time":1}
+```
+<a name="img"></a>
+2. 发送图片消息：
+数据格式: 
+```json
+{"api":"sendPicMessage", "wxid":"wxid_asdasdXXX", "imgPath":"图片路径", "time":1}
+```
+<a name="file"></a>
+3. 发送文件：
+数据格式: 
+```json
+{"api":"sendFileMessage", "wxid":"wxid_asdasdXXX", "filePath":"文件路径", "time":1}
+```
+<a name="xml"></a>
+4. 发送链接
+数据格式: 
+```json
+{"api":"sendXmlMessage", "wxid":"wxid_asdasdXXX", "title":"标题", "url":"url链接", "desc":"描述", "pic":"图片url链接", "time":1}
+```
+
+<a name="sendCard"></a>
+5. 发送名片
+数据格式：
+```json
+{"api":"sendCardMessage","wxid":"推荐名片的wxid","fwxid":"要发送的wxid"}
+```
+
+<a name="friendsOperation"></a>
+### 好友操作:
+<a name="getFriends"></a>
+1. 获取联系人：
+数据格式:
+```json
+{"api":"initContact"}
+```
+<a name="addFriend"></a>
+2. 添加好友:
+数据格式:
+```json
+ {"api":"addUserEvent", "wxid":"wxid_qg0saisth0r2XXX", "message":"您好"}
+```
+<a name="destroyFriend"></a>
+3. 删除好友:
+数据格式:
+```json
+ {"api":"delUser", "wxid":"wxid_qg0saisth0r2XXX"}
+```
+<a name="queryFriendInfo"></a>
+4. 查询好友信息(一次最多五十人):
+数据格式:
+```json
+ {"api":"newGetUserLists", "wxidLists":["wxid_qg0saisth0r2XXX", "asdad30XXX"]}
+```
+
+<a name="agreeNewFriends"></a>
+
+5. 同意新好友（收到type78中msg.type=10000说明已经添加了好友）
+数据格式：
+```json
+{"api":"acceptFriend", "v1":"xxx", "v2":"xxx"}
+```
+使用详细介绍如图
+![alt 同意新好友](img/02.png)
+
+<a name="roomOperation"></a>
+### 群操作:
+<a name="getRooms"></a>
+1. 获取所有群列表:
+数据格式: 
+```json
+{"api":"getChatRoomLists"}
+```
+<a name="editRoomName"></a>
+2. 修改群名称:
+
+更新中
+
+<a name="destoryRoomMember"></a>
+3. 踢群成员:
+数据格式: 
+```json
+{"api":"delChatRoomUser", "chatroom":"237230488XXX@chatroom", "wxid":"dasfada30XXX"}
+```
+<a name="getRoomMembers"></a>
+4. 获取群成员列表:
+数据格式: 
+```json
+{"api":"getChatRoomUserLists", "wxid":"75101150XXX@chatroom"}
+```
+<a name="editRoomAsName"></a>
+5. 修改群备注名称(我在本群的昵称)
+数据格式: 
+```json
+{"api":"updateRoomAsName", "chatroom":"237230488XXX@chatroom", "name":"修改群备注名称测试"}
+```
+<a name="getRoomMemberV2"></a>
+6. 获取群成员v2然后就可以加好友(返回type:88)
+数据格式：
+```json
+{"api":"getRoomUserV2", "chatroom":"75101150XXX@chatroom","wxid":"wxid_zxzs0isl4unhXXX"}
+```
+<a name="groupInvitation"></a>
+7. 群邀请
+数据格式：
+```json
+{"api":"sendChatroom", "wxid":"wxid_qg0saisth0r2XXX", "chatroom":"237230488XXX@chatroom"}
+```
+
+<a name="other"></a>
+### 其他
+<a name="getLoginState"></a>
+1. 获取登陆状态
+数据格式：
+```json
+{"api":"isLoginInfo"}
+```
+
+<a name="loginQrCode"></a>
+2. 登陆二维码
+数据格式：
+```json
+{"api":"getLoginQrCode"}
+```
+
+<a name="getLogout"></a>
+3. 退出登陆微信
+数据格式：
+```json
+{"api":"outLogin"}
+```
+
+<a name="cooperation"></a>
+## 商务合作
+![alt 联系方式](img/lianxi.jpg)
