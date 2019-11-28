@@ -1,4 +1,5 @@
-# Wechat API 微信API 微信协议 适配所有类型个人微信号及版本
+# WeChat API 个人微信号API/微信协议/独家接口
+# 适配所有类型个人微信号及版本
 # 支持傻瓜式二次开发
 # WeQuick 接口规范
 ![alt logo](img/logo.png)
