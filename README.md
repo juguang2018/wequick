@@ -1,4 +1,4 @@
-# WeChat API 个人微信号API/微信协议/独家接口
+# WeChat API 个人微信号API/微信协议/独家接口/PC hook
 # 适配所有类型个人微信号及版本
 # 支持傻瓜式二次开发
 # WeQuick 接口规范
