@@ -42,51 +42,51 @@
 
 # receive_msg
 一.监听微信内部发生的各种事件,并主动向回调接口发送这些事件的详细信息. 这些事件的种类有:
-1.上报登陆二维码(reportLoginQrCode)
-2.上报登陆状态(loginStatus)  
-3.上报当前登录微信详细信息(reportLoginUser)
-4.上报退出登录事件(reportLogout)
-5.上报当前联系人列表(reportContact)
-6.上报联系人/公众号的wxid(reportUsersWxid)
-7.上报查询到的联系人/公众号详细信息(reportUsersInfo)
-8.上报某个群成员列表详细信息(reportChatRoomUserLists)
-9.收到文本消息(reportTextMessage)
-10.收到图片消息(reportPicMessage)
-11.收到文件消息(reportFileMessage)
-12.收到群邀请的链接消息(reportAddChatRoomMessage)
-13.收到小程序消息(reportMiniMessage)
-14.收到网页的链接消息(reportUrlMessage)
-15.收到个人名片(reportCardMessage)
-16.收到表情消息(reportGifMessage)
-17.收到语音消息消息(reportVoiceMessage)
-18.收到视频消息(reportVideoMessage)
-19.收到微信系统消息(reportSystemMessage)
-20.上报新的加好友请求(reportFriendAddRequest)
+1. 上报登陆二维码(reportLoginQrCode)
+2. 上报登陆状态(loginStatus)  
+3. 上报当前登录微信详细信息(reportLoginUser)
+4. 上报退出登录事件(reportLogout)
+5. 上报当前联系人列表(reportContact)
+6. 上报联系人/公众号的wxid(reportUsersWxid)
+7. 上报查询到的联系人/公众号详细信息(reportUsersInfo)
+8. 上报某个群成员列表详细信息(reportChatRoomUserLists)
+9. 收到文本消息(reportTextMessage)
+10. 收到图片消息(reportPicMessage)
+11. 收到文件消息(reportFileMessage)
+12. 收到群邀请的链接消息(reportAddChatRoomMessage)
+13. 收到小程序消息(reportMiniMessage)
+14. 收到网页的链接消息(reportUrlMessage)
+15. 收到个人名片(reportCardMessage)
+16. 收到表情消息(reportGifMessage)
+17. 收到语音消息消息(reportVoiceMessage)
+18. 收到视频消息(reportVideoMessage)
+19. 收到微信系统消息(reportSystemMessage)
+20. 上报新的加好友请求(reportFriendAddRequest)
 
 # send_msg
 二. 执行回调接口下发的指令: 这些指令包括:
-1.打开微信(openWeChat)
-2.获取登陆二维码(getLoginQrCode)
-3.获取登陆状态(getLoginStatus)
-4.微信退出登录(logout)
-5.发送文本消息(sendTextMessage)
-6.发送图片消息(sendPicMessage)
-7.发送文件(sendFileMessage)
-8.发送网页的链接消息(sendUrlMessage)
-9.发送个人名片(sendCardMessage)
-10.发送群邀请的链接消息(sendChatroom)
-11.获取当前联系人列表(getContact)
-12.获取联系人/公众号的wxid(getUsersWxid)
-13.通过wxid获取联系人/公众号详细信息(getUsersInfo)
-14.删除好友(delUser)
-15.同意新好友,通过好友验证(acceptFriend)
-16.修改好友备注(updateAsName)
-17.获取某个群的群成员列表详细信息(getChatRoomUsers)
-18.踢群成员(delChatRoomUser)
-19.修改群名称(updateChatRoomName)
-20.修改我在本群的昵称(updateRoomAsName)
-21.加群成员为好友(addRoomFriend)
-22.退出群聊(exitChartRoom)
+1. 打开微信(openWeChat)
+2. 获取登陆二维码(getLoginQrCode)
+3. 获取登陆状态(getLoginStatus)
+4. 微信退出登录(logout)
+5. 发送文本消息(sendTextMessage)
+6. 发送图片消息(sendPicMessage)
+7. 发送文件(sendFileMessage)
+8. 发送网页的链接消息(sendUrlMessage)
+9. 发送个人名片(sendCardMessage)
+10. 发送群邀请的链接消息(sendChatroom)
+11. 获取当前联系人列表(getContact)
+12. 获取联系人/公众号的wxid(getUsersWxid)
+13. 通过wxid获取联系人/公众号详细信息(getUsersInfo)
+14. 删除好友(delUser)
+15. 同意新好友,通过好友验证(acceptFriend)
+16. 修改好友备注(updateAsName)
+17. 获取某个群的群成员列表详细信息(getChatRoomUsers)
+18. 踢群成员(delChatRoomUser)
+19. 修改群名称(updateChatRoomName)
+20. 修改我在本群的昵称(updateRoomAsName)
+21. 加群成员为好友(addRoomFriend)
+22. 退出群聊(exitChartRoom)
 
 
 # receive_msg
@@ -378,9 +378,9 @@
             "msg": {
                 "msgType": "1",  
                 "myMsg" : "0",  
-                "roomWxid":"123432432@chatroom",      // 聊天消息发生在哪个群(如果是私聊则为空)             
-                "wxidFrom"  : "wxid_sadkwqlXXX",      //消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号
-                "wxidTo" :"wxid_sadkwqlkq",          // 消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号 
+                "roomWxid":"123432432@chatroom",      
+                "wxidFrom"  : "wxid_sadkwqlXXX",     
+                "wxidTo" :"wxid_sadkwqlkq",
                 "nick" : "XXXX",        
                 "message" : "XXXX",
             }
