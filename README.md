@@ -15,523 +15,1054 @@
 
 ------
 
-目录：
-+ [接口介绍](#intro)
-+ [接口服务端demo(python版)](#demo)
-+ [消息回调接口](#send_msg)
-    - [所有关于登陆事件](#login)
-    - [登陆二维码](#qrCode)
-    - [登陆状态](#loginInfo)
-    - [登陆后获取个人信息或者其他的信息](#loginAfterInfo)
-    - [好友列表详细信息](#friendsListDetails)
-    - [获取群列表](#getGroupList)
-    - [获取群成员列表](#getListGroupMembers)
-    - [消息](#message)
-    - [网络获取联系人数据](#networkAccessContactData)
-    - [新建群后返回群id](#returnGroupId)
-    - [同意好友](#acceptingFriend)
-    - [获取v2](#getv2)
-    - [退出微信事件](#logout)
-    - [手机退出微信触发事件](#phoneLogout)
-+ [轮询消息接口](#recieve_msg)
-    - [发送消息](#sendMessage)
-        * [发送文本消息](#text)
-        * [发送图片消息](#img)
-        * [发送文件消息](#file)
-        * [发送xml消息](#xml)
-        * [发送名片消息](#sendCard)
-    - [好友操作](#friendsOperation)
-        * [获取联系人](#getFriends)
-        * [添加好友](#addFriend)
-        * [删除好友](#destroyFriend)
-        * [查询好友信息](#queryFriendInfo)
-        * [同意新好友](#agreeNewFriends)
-    - [群操作](#roomOperation)
-        * [获取所有群列表](#getRooms)
-        * [修改群名称](#editRoomName)
-        * [踢群成员](#destoryRoomMember)
-        * [获取群成员列表](#getRoomMembers)
-        * [修改群备注名称](#editRoomAsName)
-        * [获取群成员v2然后就可以加好友](#getRoomMemberV2)
-        * [群邀请](#groupInvitation)
-    - [其他操作](#other)
-        * [获取登陆状态](#getLoginState)
-        * [登陆二维码](#loginQrCode)
-        * [退出登陆微信](#getLogout)
-+ [商务合作](#cooperation)
+# 注意事项
+## 指令发出的方式有两种
+1. 通过 send_msg 轮询接口发出
+2. 通过 receive_msg 接口 return 发出
 
-------
+## 上报 退出登录（logout）的四种情况
+1. 点击 WeQuick 客户端的 【退出登录】 按钮，receive_msg 接口将收到如下的信息：
+```json
+{"data": {"action": "resLogout", "cwxid": "wxid_XXXXX0r222", "data": {"errorReason": "", "sendResult": "1"}}}
+```
+2. 通过指令（Logout）退出微信时，receive_msg 接口将收到的信息如下：
+```json
+{"data": {"action": "resLogout", "cwxid": "wxid_XXXXX0r222", "data": {"errorReason": "", "sendResult": "1"}}}
+```
+3. 点击 PC 微信的 【退出登录】 按钮时，receive_msg 接口将收到的信息如下：
+```json
+{"data": {"action": "reportLogout", "cwxid": "wxid_qg0saisth0r222", "data": {"code": "1"}}}
+```
+4. 手机端退出 PC 端的微信登录时，receive_msg 接口将收到的信息如下：
+```json
+{"data": {"action": "reportLogout", "cwxid": "wxid_qg0saisth0r222", "data": {"code": "1"}}}
+```
 
-<a name="intro"></a>
-## 接口介绍
+##接口所用编码均为utf-8编码
 
-> 一个软件开启一个微信程序，点击自定义接口，录入消息回调地址，轮询消息地址，点击立即保存，点击启动API即可。
+# receive_msg
+一.监听微信内部发生的各种事件,并主动向回调接口发送这些事件的详细信息. 这些事件的种类有:
+1.上报登陆二维码(reportLoginQrCode)
+2.上报登陆状态(loginStatus)  
+3.上报当前登录微信详细信息(reportLoginUser)
+4.上报退出登录事件(reportLogout)
+5.上报当前联系人列表(reportContact)
+6.上报联系人/公众号的wxid(reportUsersWxid)
+7.上报查询到的联系人/公众号详细信息(reportUsersInfo)
+8.上报某个群成员列表详细信息(reportChatRoomUserLists)
+9.收到文本消息(reportTextMessage)
+10.收到图片消息(reportPicMessage)
+11.收到文件消息(reportFileMessage)
+12.收到群邀请的链接消息(reportAddChatRoomMessage)
+13.收到小程序消息(reportMiniMessage)
+14.收到网页的链接消息(reportUrlMessage)
+15.收到个人名片(reportCardMessage)
+16.收到表情消息(reportGifMessage)
+17.收到语音消息消息(reportVoiceMessage)
+18.收到视频消息(reportVideoMessage)
+19.收到微信系统消息(reportSystemMessage)
+20.上报新的加好友请求(reportFriendAddRequest)
 
-![alt 开启API接口](img/01.png)
+# send_msg
+二. 执行回调接口下发的指令: 这些指令包括:
+1.打开微信(openWeChat)
+2.获取登陆二维码(getLoginQrCode)
+3.获取登陆状态(getLoginStatus)
+4.微信退出登录(logout)
+5.发送文本消息(sendTextMessage)
+6.发送图片消息(sendPicMessage)
+7.发送文件(sendFileMessage)
+8.发送网页的链接消息(sendUrlMessage)
+9.发送个人名片(sendCardMessage)
+10.发送群邀请的链接消息(sendChatroom)
+11.获取当前联系人列表(getContact)
+12.获取联系人/公众号的wxid(getUsersWxid)
+13.通过wxid获取联系人/公众号详细信息(getUsersInfo)
+14.删除好友(delUser)
+15.同意新好友,通过好友验证(acceptFriend)
+16.修改好友备注(updateAsName)
+17.获取某个群的群成员列表详细信息(getChatRoomUsers)
+18.踢群成员(delChatRoomUser)
+19.修改群名称(updateChatRoomName)
+20.修改我在本群的昵称(updateRoomAsName)
+21.加群成员为好友(addRoomFriend)
+22.退出群聊(exitChartRoom)
 
-> 消息回调地址：当 PC 微信有新事件产生，如收到新消息时，包括全部系统消息，都将通过该接口 post 消息到服务端。
 
-> 轮询消息地址：可设置轮询时间间隔，定时轮询服务端是否有任务执行。
+# receive_msg
+## 参数说明
+|数据格式中的参数|参数的含义|
+|:--------------|:-------|
+|action         |上报的名称|
+|cwxid          |当前登录微信账号的微信 ID|
+|data           |上报的数据|
 
-> wechat多开，注意需要从客户端(WeQuick)唤起，一个客户端对应一个微信，对应一个processid。
-
-<a name="demo"></a>
-## 接口服务端demo(python版)
-[https://github.com/juguang2018/WeQuick](https://github.com/juguang2018/wequick)
-
-> (demo的原理是开启httpServer服务,处理客户端(WeQuick)发送过来的的http请求，然后返回相应的respone)
-
-<a name="send_msg"></a>
-## 一·消息回调
-> 只要是 pc 微信接收到的消息都能收到，这个是客户端(WeQuick)主动推送给服务端的。
-
-<a name="login"></a>
-### 所有关于登陆事件 type:67
-数据格式示例:
+## 数据格式
 ```json
 {
-"data":
-    {
-        "processid": 6072,
-        "type": 67,
-        "code": 200,
-        "cwxid": "wxid_yfng437lnlygXXX"
-    }
+    "action" : "",
+    "cwxid" : "",
+    "data" : {}
 }
 ```
 
-<a name="qrCode"></a>
-### 登陆二维码 type:401
+### send_msg 任务下发到DLL的响应
 ```json
-// hex 二维码
 {
+    "action":"",
+    "cwxid":"wxid_qg0saisth0r222",
+    "data":{"errorReason":"","sendId":"150588","sendResult":"1"},
+}
+```
+
+### 上报登陆二维码
+```json
+{
+    "action":"reportLoginQrCode",
+    "cwxid":"null",
     "data":{
-        "cgi":"/cgi-bin/micromsg-bin/getloginqrcode",
-        "type":82,
-        "processid":5884,
-        "cwxid":"wxid_yfng437l",
-        "packLen":3689,
-        "hex":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALkAAAC"
+        "message":"",
     }
 }
 ```
 
-<a name="loginInfo"></a>
-### 登陆状态
+### 上报登陆状态
+#### 参数说明
+|data 中的参数|参数说明|
+|:-----------|:-------|
+|code        |是否登陆 1：成功  0：不成功|
+
 ```json
-// code 200 表示 已登陆
-// code -1  表示 未登陆
 {
-"data":
-    {
-        "type":66,
-        "code":200
+    "action":"loginStatus",
+    "cwxid":"wxid_qg0saisth0r222",
+    "data":{
+        "code":""
     }
 }
 ```
 
-<a name="loginAfterInfo"></a>
-### 登陆后获取个人信息或者其他的信息 type:71
+### 上报当前登录微信详细信息
+#### 参数说明
+|data 中的参数|参数说明|
+|:-----------|:-------|
+|wxid        |微信id|
+|username    |微信号(有可能为空)|
+|nick        |微信昵称|
+|asName      |好友备注|
+|headPic     |头像的url地址|
+|sex         |性别:1男，2女,0(未知)|
+|country     |祖国(可能为空)|
+|province    |省份(可能为空)|
+|city        |城市(可能为空)|
+
 ```json
 {
-"data":
-    {
-        "username": "yqxxxx",
-        "processid": 6072,
-        "type": 71,
-        "cwxid": "wxid_yfng437lnlygXXX",
-        "wxid": "wxid_yfng437lnlygXXX",
-        "headPic": "http://wx.qlogo.cn/mmhead/ver_1/4wJLicLp7zzib6cfVlQUgYBcTQFOE/0",
-        "sheadPic": "http://wx.qlogo.cn/mmhead/ver_1/4wJLid1cHOWY0p6ctcUgYBcTQFOE/132",
-        "nick": "bigxxx",
-        "asName": "",
-        "province": "",
-        "city": "",
-        "sex": "2",
-        "regionCode": "",
-        "sign": ""
+    "action":"reportLoginUser",
+    "cwxid":"wxid_qg0saisth0r222",
+    "data":{
+        "wxid":  "wxid",
+        "username": "xxxxx",
+        "nick":"xxxxx",
+        "asName" :"xxxx",
+        "headPic":"http://xxxxxxxx",
+        "sex" : 0, 
+        "country":"xxx",
+        "province":"xxxx",
+        "city":"xxxxx",
+        "uin":88888888
     }
 }
 ```
 
-<a name="friendsListDetails"></a>
-### 好友列表详细信息 type:210
+### 上报退出登录事件
+#### 参数说明
+|data 中的参数|参数说明|
+|:-----------|:-------|
+|code        |1:退出 0:其他|
+
 ```json
 {
-"data":
-    {
-        "type": 210,
-        "processid": 8308,
-        "cwxid": "wxid_sadaxxxxx",
-        "userLists":
-            [
-                {
-                    "wxid": "gh_e456599aa7XXX",
-                    "asName": "(null)",
-                    "headPic":  "http://wx.qlogo.cn/mmhead/Q3auHgzwC6lpicvsSLj53d1Xe54w/0",
-                    "sheadPic": "http://wx.qlogo.cn/mmhead/Q3auHgz6lpicvsSLj53d1Xe54w/132",
-                    "nick": "微及时XXX",
-                    "username": "wsdXXX",
-                    "province": "上海",
-                    "city": "中国",
-                    "sex": 0,
-                    "regionCode": "",
-                    "sign": "",
-                    "type": 3,
-                    "groupId": "None",
-                    "cwxid": "xxxxxxxx"
-                }
-            ]
+    "action":"reportLogout",
+    "cwxid":"wxid_qg0saisth0r222",
+    "data":{
+        "code":""
     }
 }
 ```
 
-<a name="getGroupList"></a>
-### 获取群列表 type:211
+### 上报当前联系人列表  reportContact
+#### 参数说明
+|data 中 friendList(好友) 的参数|参数说明|
+|:-----------|:-------|
+|wxid        |微信id|
+|username    |微信号(有可能为空)|
+|nick        |微信昵称|
+|asName      |好友备注|
+|headPic     |头像的url地址|
+|sex         |性别:1男，2女,0(未知)|
+|country     |祖国(可能为空)|
+|province    |省份(可能为空)|
+|city        |城市(可能为空)|
+|isFriend    |好友状态：0非好友，1是好友，2是黑名单|
+
+
+|data 中 groupList(群) 的参数|参数说明|
+|:-----------|:-------|
+|wxid        |微信id|
+|nick        |微信昵称|
+|owner       |群主的wxid|
+|roomCount   |群成员数量|
+|headPic     |头像的url地址|
+|userLists   |当前群的成员wxid的列表|
+
+
+|data 中 publicList(公众号) 的参数|参数说明|
+|:-----------|:-------|
+|wxid        |某些公众号也可能以wxid_ 开头|
+|nick    |公众号名称|
+|headPic     |群的头像的url地址|
+
 ```json
-// wxid： 群id； exist: 是否在这个群里
-// count: 群成员数量； userLists: 群成员的 wxid， ^G 为分隔符 
-// roomLord： 是否是群主； headPic：头像地址； sheadPic: 缩略图
-// nick: 群聊名称； 其他字段主要是好友才需要的字段，对于群忽略就好
 {
-"data":
-    {
-        "type": 211,
-        "processid": 6072,
-        "cwxid": "wxid_yfng437lnlygXXX",
-        "chatrooms":
-        [
+    "action":"reportContact",
+    "cwxid":"wxid_qg0saisth0r222",
+    "data":{
+        "friendList":[
             {
-                "wxid":"23376255333@chatroom",
-                "exist":true,
-                "count":4,
-                "userLists":"^Gwxid_qg0222^Ghechs^Gwxid_22^Gwxid_rzzg11^G",
-                "roomLord":false,
-                "headPic":"http://wx.qlogo.cn/mmkNlvZ/0",
-                "sheadPic":"http://wx.qlogo.cn/mmcrTcxt8kNlvZ/0",
-                "nick":"测试",
-                "username":"",
-                "asName":"",
-                "province":"",
-                "city":"",
-                "sex":"0",
-                "regionCode":"",
-                "sign":""
+                "wxid":  "wxid",
+                "username": "xxxxx",
+                "nick":"xxxxx",
+                "asName" :"xxxx",
+                "headPic":"http://xxxxxxxx",
+                "sex" : 0, 
+                "country":"xxx",
+                "province":"xxxx",
+                "city":"xxxxx",
+                "isFriend":""
             }
-        ] 
-    } 
-}
-```
-
-<a name="getListGroupMembers"></a>
-### 获取群成员列表 type:77
-```json  
-{
-"data":
-    {
-        "type":77,
-        "processid":8844,
-        "cwxid":"wxid_yfng437lnlygXXX",
-        "wxid":"75101150XXX@chatroom",
-        "info":"PD94bWwgdmVyc2lvbj0iMS4wIj8dDMWE3\r\naWE5SWJ1WDJkc3dLaWFVVlhIWjdZM0",
-        "userLists":
-        [
+        ],
+        "groupList":[
             {
-                "wxid":"yly_11XXX",
-                "headPic":"http://wx.qlogo.cnic5Kic1pMzgK30S8YY8iblHY0Qc/0",
-                "sheadPic":"http://wx.qlogo.cn/mmhead/ver_1/XDXmlHY0Qc/132",
-                "nick":"微及时xxx",
-                "username":"",
-                "asName":"",
-                "province":"",
-                "city":"",
-                "sex":"2",
-                "regionCode":"",
-                "sign":""
-            },
+                "wxid": "xxxxxxx",
+                "nick": "xxxxxx",
+                "owner": "xxxxxxxx",
+                "roomCount":  100,
+                "headPic":"http://xxxxxxxx",
+                "userLists" :["wxid_xxx1","wxid_xxx2","..."]
+            }
+        ],
+        "publicList":[
             {
-                "wxid":"wxid_pigclv404o2iXXX",
-                "headPic":"http://wx.qlogo.cn/mmhead/ver_1/dfnqH5NbvwHMEKU71HOVLiaVTw/0",
-                "sheadPic":"http://wx.qlogo.cn/mmhead/ver_1/dfnSxxwHMEKU71HOVLiaVTw/132",
-                "nick":"微及时xxx",
-                "username":"bigxxx",
-                "asName":"",
-                "province":"",
-                "city":"",
-                "sex":"0",
-                "regionCode":"",
-                "sign":""
+                "wxid":  "gh_xxxxx",
+                "nick":"xxxxx",
+                "headPic":"http://xxxxxxxxxx"
             }
         ]
     }
 }
-
 ```
 
-<a name="message"></a>
-### 系统消息 文本消息 卡片消息 视频消息 图片消息 群消息 等等消息综合 type:78
-数据格式示例:
+### 上报联系人/公众号的wxid
 ```json
 {
-    "type": 78,                     // int        信息分类，如接受消息，好友变动消息，群邀请信息等
-    "msgType": "1",                 // string     信息类型，新好友（37）、系统消息（10000）、文本（1）、图片（3）
-    "processid" : "7768",           // int        进程ID 
-    "cwxid" : "wxid_adskjfseXXX",   // string     当前登陆的微信号
-    "wxid"  : "wxid_sadkwqlXXX",    // string     发送方的微信ID，如果发送方为群，怎为群ID
-    "formWxid" :"wxid_sadkwqlkq",   // string     只有群消息才有，为发送方个人的微信ID
-    "nick" : "XXXX",                // string     用户昵称，如果是群则为群昵称
-    "message" : "XXXX",             // string     消息内容
+    "action" : "reportUsersWxid",
+    "cwxid" : "xxxxxx",
+    "data" : {
+        "userLists" : ["wxid_1","wxid_2"]
+    }
 }
 ```
 
-<a name="networkAccessContactData"></a>
-### 网络获取联系人数据 type:88 
+### 上报查询到的联系人/公众号详细信息
+#### 参数说明
+|userLists 中的参数|参数的含义|
+|:-----------|:--------|
+|wxid        |微信 ID  |
+|username    |微信号(有可能为空) |
+|nick        |微信昵称 |
+|asName      |好友备注 |
+|headPic     |头像的url地址 |
+|sex         |性别:1男，2女,0未知 |
+|country     |祖国(可能为空) |
+|province    |省份(可能为空) |
+|city        |城市(可能为空) |
+
 ```json
 {
-"data":
+    "action" : "reportUsersInfo",
+    "cwxid" : "xxxxxx",
+    "data" : {
+        "userLists" : [
+            {
+                "wxid":  "wxid",
+                "username": "xxxxx",
+                "nick":"xxxxx",
+                "asName" :"xxxx",
+                "headPic":"http://xxxxxxxx",
+                "sex" : "xx" ,
+                "country":"xxx",
+                "province":"xxxx",
+                "city":"xxxxx"
+            }
+        ]
+    }
+}
+```
+
+### 微及时上报某个群成员列表详细信息 reportChatRoomUserLists
+#### 参数说明
+|data 中的参数|参数的含义|
+|:-----------|:---------|
+|wxid        |群的微信 ID|
+|owner       |群主 ID|
+|nick        |群昵称|
+|headPic     |群头像|
+|roomCount   |群成员数量|
+
+
+|userLists 中的参数|参数的含义|
+|:-----------|:---------|
+|wxid        |微信 ID|
+|username    |微信号(有可能为空)|
+|nick        |昵称|
+|headPic     |头像|
+|sex         |性别:1男，2女,0未知 |
+|country     |祖国(可能为空) |
+|province    |省份(可能为空) |
+|city        |城市(可能为空) |
+
+```json
+{
+    "action":"reportChatRoomUserLists",
+    "cwxid" : "wxid_fo1039029348sfj",
+    "data" : {
+        "wxid":"7510115058@chatroom",
+        "owner":"xxxxx",
+        "nick":"", 
+        "headPic":"",
+        "roomCount":"",
+        "userLists":[
+           {
+                "wxid":"",    
+                "username":"",      
+                "nick":"",
+                "headPic":"",
+                "sex":"2",
+                "country":"xxx",
+                "province":"xxx",
+                "city":"xxx"
+           }
+       ]
+    }
+}
+```
+
+### 收到文本消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|message    |消息内容，纯文本格式|
+
+```json
     {
-        "cgi":"/cgi-bin/micromsg-bin/getcontact",
-        "type":88,
-        "processid":6072,
-        "cwxid":"wxid_yfng437lnlygXXX",
-        "packLen":809,
-        "hex":"0A040800120010011A99060A0B2040A0080038FFFFFFFF0",
+        "action":"reportTextMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "1",  
+                "myMsg" : "0",  
+                "roomWxid":"123432432@chatroom",      // 聊天消息发生在哪个群(如果是私聊则为空)             
+                "wxidFrom"  : "wxid_sadkwqlXXX",      //消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号
+                "wxidTo" :"wxid_sadkwqlkq",          // 消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号 
+                "nick" : "XXXX",        
+                "message" : "XXXX",
+            }
+        }
+    }
+```
+
+### 收到图片消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|fileIndex  |图片下载后的本地路径|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportPicMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "3",          
+                "myMsg" : "0",                      
+                "roomWxid": "xxxxxxxx@chatroom", 
+                "wxidFrom": "wxid_xxxxxx",     
+                "wxidTo":  "wxid_xxxxx",       
+                "nick" : "XXXX",                
+                "fileIndex" : "XXXX",
+                "xmlmsg" : ""
+            }
+        }
+    }
+```
+
+### 收到文件消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|fileIndex  |文件下载后的本地路径|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportFileMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "4901",             
+                "myMsg" : "0",                  
+                "roomWxid": "xxxxxxxx@chatroom",
+                "wxidFrom": "wxid_xxxxxx",
+                "wxidTo":  "wxid_xxxxx",
+                "nick" : "XXXX",   
+                "fileIndex":"",
+                "xmlmsg": "xxxxxxx"
+            }
+        }
+    }
+```
+### 收到群邀请的链接消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|url        |链接的地址|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportAddChatRoomMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "4902",             
+                "myMsg" : "0",                  
+                "roomWxid": "xxxxxxxx@chatroom", 
+                "wxidFrom": "wxid_xxxxxx",   
+                "wxidTo":  "wxid_xxxxx", 
+                "nick" : "XXXX",   
+                "url" : "",   
+                "xmlmsg": "xxxxxxx"
+            }
+        }
+    }
+```
+
+
+
+#### 收到小程序消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportMiniMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msg_type":"4903",             
+                "myMsg" : "0",                    
+                "roomWxid": "xxxxxxxx@chatroom", 
+                "wxidFrom": "wxid_xxxxxx",
+                "wxidTo": "xxxxxxxxx",
+                "nick" : "",
+                "xmlmsg": "xxxxxxx"      
+            }
+        }
+    }
+```
+
+
+### 收到网页的链接消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|title      |链接的标题|
+|url        |链接的地址|
+|desc       |链接的描述信息|
+|pic        |链接的封面图片|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportUrlMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "4904",             
+                "myMsg" : "0",                  
+                "roomWxid": "xxxxxxxx@chatroom",
+                "wxidFrom": "wxid_xxxxxx",
+                "wxidTo":  "wxid_xxxxx",
+                "nick" : "XXXX", 
+                "title": "",
+                "url": "",
+                "desc": "",
+                "pic": "",
+                "xmlmsg": "xxxxxxx"
+            }
+        }
+    }
+```
+
+### 收到个人名片
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportCardMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "42",             
+                "myMsg" : "0",
+                "roomWxid" : "",                   
+                "wxidFrom"  : "",                   
+                "wxidTo" :"wxid_sadkwqlkq",
+                "nick" : "",
+                "xmlmsg": "xxxxxxx"       
+            }
+        }
+    }
+```
+
+### 收到表情消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|url        |表情的url地址|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportGifMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msg_type":47,             
+                "myMsg" : "0",                    
+                "roomWxid": "xxxxxxxx@chatroom", 
+                "wxidFrom": "wxid_xxxxxx",
+                "wxidTo": "xxxxxxxxx",
+                "nick" : "",
+                "url" : "",
+                "xmlmsg": "xxxxxxx"      
+            }
+        }
+    }
+```
+
+
+#### 收到微信系统消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportSystemMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "10000",
+                "myMsg" :"",
+                "roomWxid":"",                 
+                "wxidFrom"  : "",                  
+                "wxidTo" :"wxid_sadkwqlkq", 
+                "xmlmsg": "xxxxxxx"
+            }
+        }
+    }
+```
+
+> 系统通知示例:
+    1.发消息-被对方拉黑之后,raw_msg 为"消息已发出，但被对方拒收了"
+    2.有红包出没时:"发出红包，请在手机上查看"
+    3.修改群名称后:xxxxx修改群名为xxxxxxx
+    其他:
+        群主已恢复默认进群方式。
+        群主已启用“群聊邀请确认”，群成员需群主确认才能邀请朋友进群。
+        你已成为新群主
+        xxxxxx已成为新群主
+        你邀请xxxx加入了群聊
+        xxxx邀请xxxx加入了群聊
+        xxxxx通过扫描你分享的二维码加入群聊"
+        xxxxx通过扫描xxxxxx分享的二维码加入群聊"
+
+
+### 上报新的加好友请求
+#### 个别参数说明，未给出的则参考其他接口的说明
+|msg 中的参数|参数的含义|
+|:----------|:--------|
+|v1         |通过好友请求时需要用到的 v1|
+|v2         |通过好友请求时需要用到的 v2|
+|noticeWord |打招呼的消息  |
+|xmlmsg     |微信中的原始消息,xml格式|
+
+```json
+{
+    "action":"reportFriendAddRequest",
+    "cwxid":"wxid_qg0saisth0r222",
+    "data" : {
+                "wxid":"",    
+                "username":"",      
+                "nick":"",            
+                "headPic":"",
+                "sex":"2",
+                "country":"xxx",
+                "province":"xxx",
+                "city":"xxx",
+                "v1":"xxxxxx",              
+                "v2":"xxxxxxx",            
+                "noticeWord":"xxxxxxx",
+                "xmlmsg":"xxxxxxxxxxx",     
+    }
+}
+```
+
+# send_msg
+## 数据格式
+```json
+{
+    "api" : "",
+    "sendId":"",
+    "option" : {}
+}
+```
+
+### 打开微信
+```json
+{
+    "api" : "openWeChat",
+    "sendId":"",
+    "option" : {}
+}
+```
+
+### 获取登陆二维码
+```json
+{
+    "api" : "getLoginQrCode",
+    "sendId":"",
+    "option" : {}
+}
+```
+
+###  获取登陆状态
+```json
+{
+    "api" : "getLoginStatus",
+    "sendId":"",
+    "option" : {}
+}
+```
+
+### 微信退出登录
+```json
+{
+    "api" : "logout",
+    "sendId":"",
+    "option" : {}
+}
+```
+
+### 发送文本消息  sendTextMessage
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid         |要发送的对象的微信id|
+|text         |消息文本|
+
+```json
+{
+    "api" : "sendTextMessage",
+    "sendId":"",
+    "option" : {
         "wxid":"",
+        "text":"",
+    }
+}
+```
+
+### 发送图片消息  sendPicMessage
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid         |要发送的对象的微信id|
+|imgPath      |图片地址（客户端所在主机的本地图片地址或网络地址）|
+
+```json
+{
+    "api" : "sendPicMessage",
+    "sendId":"",
+    "option" : {
+        "wxid":"",
+        "imgPath":""
+    }
+}
+```
+
+### 发送文件
+
+#### 参数说明
+注意：文件大小建议不要超过50M，否则会发送失败;
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid         |要发送的对象的微信id|
+|filePath     |文件地址（客户端所在主机的本地文件地址或网络地址）|
+
+```json
+{
+    "api" : "sendFileMessage",
+    "sendId":"",
+    "option" : {
+        "wxid":"",
+        "filePath":""
+    }
+}
+```
+
+### 发送网页的链接消息(sendUrlMessage)
+
+```json
+{
+    "api" : "sendUrlMessage",
+    "sendId":"",
+    "option" : {
+        "wxid":"",
+        "title":"标题",
+        "url":"url链接",
+        "desc":"描述",
+        "pic":"图片url链接"
+    }
+}
+```
+
+### 发送个人名片
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid         |要发送的对象的微信id|
+|wxidCard     |要发送的名片的微信id|
+
+```json
+{
+    "api" : "sendCardMessage",
+    "sendId":"",
+    "option" : {
+        "wxid":"",
+        "wxidCard":""
+    }
+}
+```
+
+### 发送群邀请
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid         |要发送的对象的微信id|
+|chatroom     |群的id|
+
+```json
+{
+    "api" : "sendChatroom",
+    "sendId":"",
+    "option" : {
+        "wxid":"",
+        "chatroom":""
+    }
+}
+```
+
+### 获取当前联系人列表
+
+#### 参数说明
+flag:
+若在reportContact中完整上报[好友+群+公众号]三者的数据会导致数据量太大/冗余,故新增该flag来设置只上报其中一部分关心的数据值，默认为1
+含义:
+0|不上报任何信息
+1|上报好友的信息(friendList)
+2|上报群的信息(groupList)
+3|上报好友和群的信息(1+2=3)
+4|上报公众号的信息(publicList)
+5|上报好友和公众号的信息(1+4=5)
+6|上报群和公众号的信息(2+4=6)
+7|上报所有的信息(1+2+4=7)
+
+```json
+{
+    "api" : "getContact",
+    "sendId":"",
+    "option" : {
+        "flag":""
+    }
+}
+```
+
+
+### 获取联系人/公众号的wxid
+```json
+{
+    "api" : "getUsersWxid",
+    "sendId":"",
+    "option" : {}
+}
+```
+
+
+##  好友操作:
+
+### 通过wxid获取联系人/公众号详细信息(一次最少一个，最多五十个)
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxidLists    |需要获取详细信息的微信id|
+
+```json
+{
+    "api" : "getUsersInfo",
+    "sendId":"",
+    "option" : {
+        "wxidLists":["wxid_qgxxxxxx222", "xyzxxxx53"]
+    }
+}
+```
+
+### 删除好友
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid    |需要删除的好友的微信id|
+
+```json
+{
+    "api" : "delUser",
+    "sendId":"",
+    "option" : {
+        "wxid":""
+    }
+}
+```
+
+### 同意新好友,通过好友验证
+```json
+{
+    "api" : "acceptFriend",
+    "sendId":"",
+    "option" : {
         "v1":"",
         "v2":""
     }
 }
 ```
 
-<a name="returnGroupId"></a>
-### 新建(操作)群后返回群id type:69
+### 修改好友备注
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid    |需要修改备注的好友的微信id|
+|asName    |备注信息|
+
 ```json
 {
-"data":
-    {
-        "type":69,
-        "cwxid":"wxid_yfng437lnlygXXX",
-        "xml":"",
-        "chatroom":"218138553XXX@chatroom"
+    "api" : "updateAsName",
+    "sendId":"",
+    "option" : {
+        "wxid":"",
+        "asName":""
     }
 }
 ```
 
-<a name="acceptingFriend"></a>
-### 同意好友 type:96
+##  群操作:
+
+### 获取某个群的群成员列表详细信息
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid    |需要获取的群的id|
+
 ```json
-// hex： 16进制的数据，包含所有联系人的 wxid
-// wxid： 处理过的hex中的 wxid，包含 wxid 说明同意好友成功
 {
-    "data":
-    {
-        "cgi":"/cgi-bin/micromsg-bin/verifyuser",
-        "type":96,
-        "processid":6072,
-        "cwxid":"wxid_yfng437lnlyXXX",
-        "packLen":6,
-        "hex":"0A04080012001A6C76315F653839616E676572", 
-        "wxid":"XXX"
+    "api" : "getChatRoomUsers",
+    "sendId":"",
+    "option" : {
+        "wxid":""         
     }
 }
 ```
 
-<a name="getv2"></a>
-### 获取v2 type:81
+### 踢群成员，当前微信必须有踢人权限(为群主或者群管理员)
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxid    |需要获取的群的id|
+|chatroom    |群的微信id|
+
 ```json
 {
-"data":
-    {
-        "type":81,
-        "processid":6072,
-        "cwxid":"wxid_yfng437lnlyXXX",
-        "wxid":"wxid_qg0saisth0rXXX",
-        "v2":"v2_8a0384d4c6cb06add95851691b613d873b202311f358cc247c6891@stranger",
-        "headPic":"http://wx.qlogo.cn/mmhead/ver_1/sD1PwMFiciclycKqvicF81uTEo/0",
-        "sheadPic":"http://wx.qlogo.cn/mmhead/ver_1/sRAFiciclycKqvicF81uTEo/132",
-        "nick":"DaQiXXX",
-        "username":"e1030XXX",
-        "asName":"",
-        "province":"",
-        "city":"上海",
-        "sex":"1",
-        "regionCode":"CN",
-        "sign":""
+    "api" : "delChatRoomUser",
+    "sendId":"",
+    "option" : {
+        "chatroom":"",            
+        "wxid":""
     }
 }
 ```
 
-<a name="logout"></a>
-### 退出微信事件 type:90
+### 修改群名称
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|chatroom    |群的微信id|
+|name        |要修改的名称|
+
 ```json
 {
-"data":{
-    "cgi":"/cgi-bin/micromsg-bin/logout",
-    "type":90,
-    "processid":6072,
-    "cwxid":"wxid_yfng437lnlyxxx",
-    "packLen":6,
-    "hex":"0A0408001200", 
+    "api" : "updateChatRoomName",
+    "sendId":"",
+    "option" : {
+        "chatroom":"",            
+        "name":""
     }
 }
 ```
 
-<a name="phoneLogout"></a>
-### 手机退出微信触发事件 type:98
+###  修改我在本群的昵称
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|chatroom    |群的微信id|
+|nick        |要修改的昵称|
+
 ```json
 {
-"data":{
-    "cgi":"/cgi-bin/micromsg-bin/autoauth",
-    "type":98,
-    "processid":6072,
-    "cwxid":"wxid_yfng437lnlyxxx",
-    "packLen":433,
-    "hex":"0AAC02089CFFFFFFFFFF00280038001A0608001000280032020800",
+    "api" : "updateRoomAsName",
+    "sendId":"",
+    "option" : {
+        "chatroom":"",            
+        "nick":""
     }
 }
 ```
 
-<a name="recieve_msg"></a>
-## 二·轮询消息
-> 该接口是服务端定时轮询客户端(WeQuick)来执行服务端发出的任务，轮询时间可以自己设置，默认时间单位为秒，以下所有接口中字段time为非必须，加time字段可以单独控制某个任务发送的延迟时间。
-<a name="sendMessage"></a>
-### 发送消息:
-<a name="text"></a>
-1. 发送文本消息：
-数据格式: 
+###  加群成员为好友（两条此指令之间的间隔时间不能低于5s）
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|chatroom    |群的微信id|
+|wxid        |要加为好友的个人微信id|
+|noticeWord  |打招呼的消息|
+
 ```json
-{"api":"sendTextMessage", "wxid":"wxid_qg0saisth0r2XXX", "text":"测试", "time":1}
-```
-<a name="img"></a>
-2. 发送图片消息：
-数据格式: 
-```json
-{"api":"sendPicMessage", "wxid":"wxid_asdasdXXX", "imgPath":"图片路径", "time":1}
-```
-<a name="file"></a>
-3. 发送文件：
-数据格式: 
-```json
-{"api":"sendFileMessage", "wxid":"wxid_asdasdXXX", "filePath":"文件路径", "time":1}
-```
-<a name="xml"></a>
-4. 发送链接
-数据格式: 
-```json
-{"api":"sendXmlMessage", "wxid":"wxid_asdasdXXX", "title":"标题", "url":"url链接", "desc":"描述", "pic":"图片url链接", "time":1}
+{
+    "api" : "addRoomFriend",
+    "sendId":"",
+    "option" : {
+        "chatroom":"23XXXXX71@chatroom",
+        "wxid":"xyz11111",
+        "noticeWord":"你好！我是XXX"
+    }
+}
 ```
 
-<a name="sendCard"></a>
-5. 发送名片
-数据格式：
-```json
-{"api":"sendCardMessage","wxid":"推荐名片的wxid","fwxid":"要发送的wxid"}
-```
+### 退出群聊
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|chatroom    |群的微信id|
 
-<a name="friendsOperation"></a>
-### 好友操作:
-<a name="getFriends"></a>
-1. 获取联系人：
-数据格式:
 ```json
-{"api":"initContact"}
+{
+    "api":"exitChartRoom",
+    "sendId":"",
+    "option":{
+        "chatroom":""
+    }
+}
 ```
-<a name="addFriend"></a>
-2. 添加好友:
-数据格式:
-```json
- {"api":"addUserEvent", "wxid":"wxid_qg0saisth0r2XXX", "message":"您好"}
-```
-<a name="destroyFriend"></a>
-3. 删除好友:
-数据格式:
-```json
- {"api":"delUser", "wxid":"wxid_qg0saisth0r2XXX"}
-```
-<a name="queryFriendInfo"></a>
-4. 查询好友信息(一次最多五十人):
-数据格式:
-```json
- {"api":"newGetUserLists", "wxidLists":["wxid_qg0saisth0r2XXX", "asdad30XXX"]}
-```
-
-<a name="agreeNewFriends"></a>
-
-5. 同意新好友（收到type78中msg.type=10000说明已经添加了好友）
-数据格式：
-```json
-{"api":"acceptFriend", "v1":"xxx", "v2":"xxx"}
-```
-使用详细介绍如图
-![alt 同意新好友](img/02.png)
-
-<a name="roomOperation"></a>
-### 群操作:
-<a name="getRooms"></a>
-1. 获取所有群列表:
-数据格式: 
-```json
-{"api":"getChatRoomLists"}
-```
-<a name="editRoomName"></a>
-2. 修改群名称:
-
-更新中
-
-<a name="destoryRoomMember"></a>
-3. 踢群成员:
-数据格式: 
-```json
-{"api":"delChatRoomUser", "chatroom":"237230488XXX@chatroom", "wxid":"dasfada30XXX"}
-```
-<a name="getRoomMembers"></a>
-4. 获取群成员列表:
-数据格式: 
-```json
-{"api":"getChatRoomUserLists", "wxid":"75101150XXX@chatroom"}
-```
-<a name="editRoomAsName"></a>
-5. 修改群备注名称(我在本群的昵称)
-数据格式: 
-```json
-{"api":"updateRoomAsName", "chatroom":"237230488XXX@chatroom", "name":"修改群备注名称测试"}
-```
-<a name="getRoomMemberV2"></a>
-6. 获取群成员v2然后就可以加好友(返回type:88)
-数据格式：
-```json
-{"api":"getRoomUserV2", "chatroom":"75101150XXX@chatroom","wxid":"wxid_zxzs0isl4unhXXX"}
-```
-<a name="groupInvitation"></a>
-7. 群邀请
-数据格式：
-```json
-{"api":"sendChatroom", "wxid":"wxid_qg0saisth0r2XXX", "chatroom":"237230488XXX@chatroom"}
-```
-
-<a name="other"></a>
-### 其他
-<a name="getLoginState"></a>
-1. 获取登陆状态
-数据格式：
-```json
-{"api":"isLoginInfo"}
-```
-
-<a name="loginQrCode"></a>
-2. 登陆二维码
-数据格式：
-```json
-{"api":"getLoginQrCode"}
-```
-
-<a name="getLogout"></a>
-3. 退出登陆微信
-数据格式：
-```json
-{"api":"outLogin"}
-```
-
 <a name="cooperation"></a>
 ## 商务合作
 ![alt 联系方式](img/lianxi.jpg)
