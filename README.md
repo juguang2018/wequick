@@ -616,6 +616,69 @@
     }
 ```
 
+### 收到语音消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportVoiceMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "4901",             
+                "myMsg" : "0",                  
+                "roomWxid": "xxxxxxxx@chatroom",
+                "wxidFrom": "wxid_xxxxxx",
+                "wxidTo":  "wxid_xxxxx",
+                "nick" : "XXXX",  
+                "xmlmsg": "xxxxxxx"
+            }
+        }
+    }
+```
+
+### 收到视频消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|nick       |用户昵称，如果是群则为群昵称|
+|coverIndex |视频文件封面图片的本地路径|
+|videoIndex  |视频文件下载后的本地路径|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportVideoMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "4901",             
+                "myMsg" : "0",                  
+                "roomWxid": "xxxxxxxx@chatroom",
+                "wxidFrom": "wxid_xxxxxx",
+                "wxidTo":  "wxid_xxxxx",
+                "nick" : "XXXX",   
+                "coverIndex":"",
+                "videoIndex":"",
+                "xmlmsg": "xxxxxxx"
+            }
+        }
+    }
+```
 
 #### 收到微信系统消息
 
