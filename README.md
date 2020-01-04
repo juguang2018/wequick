@@ -56,12 +56,15 @@
 12. 收到群邀请的链接消息(reportAddChatRoomMessage)
 13. 收到小程序消息(reportMiniMessage)
 14. 收到网页的链接消息(reportUrlMessage)
-15. 收到个人名片(reportCardMessage)
-16. 收到表情消息(reportGifMessage)
-17. 收到语音消息消息(reportVoiceMessage)
-18. 收到视频消息(reportVideoMessage)
-19. 收到微信系统消息(reportSystemMessage)
-20. 上报新的加好友请求(reportFriendAddRequest)
+15. 收到转账消息(reportTransferMessage)
+16. 收到个人名片(reportCardMessage)
+17. 收到表情消息(reportGifMessage)
+18. 收到语音消息消息(reportVoiceMessage)
+19. 收到视频消息(reportVideoMessage)
+21. 收到群相关系统消息(reportChatroomMessage)
+22. 收到其他微信系统消息(reportSystemMessage)
+23. 上报新的加好友请求(reportFriendAddRequest)
+24. 上报接受群邀请成功(reportAcceptChatroomInvite)
 
 # send_msg
 二. 执行回调接口下发的指令: 这些指令包括:
@@ -87,6 +90,7 @@
 20. 修改我在本群的昵称(updateRoomAsName)
 21. 加群成员为好友(addRoomFriend)
 22. 退出群聊(exitChartRoom)
+23. 接受群邀请(acceptChatroomInvite)
 
 
 # receive_msg
@@ -376,7 +380,7 @@
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
             "msg": {
-                "msgType": "1",  
+                "msgType": 1,  
                 "myMsg" : "0",  
                 "roomWxid":"123432432@chatroom",      
                 "wxidFrom"  : "wxid_sadkwqlXXX",     
@@ -407,7 +411,7 @@
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
             "msg": {
-                "msgType": "3",          
+                "msgType": 3,          
                 "myMsg" : "0",                      
                 "roomWxid": "xxxxxxxx@chatroom", 
                 "wxidFrom": "wxid_xxxxxx",     
@@ -552,6 +556,42 @@
             }
         }
     }
+
+```
+### 收到转账消息
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|wxidFrom   |消息发送者的wxid|
+|wxidTo     |消息的接收者的wxid|
+|nick       |用户昵称|
+|transferid |转账的ID|
+|paysubtype |这笔账单的状态，1:发起转账时(包括我转账给他人，他人转账给我)；3:确认收账时(包括我确认收账，他人确认收账);4:退还转账(包括我退还转账，他人退还转账给我)|
+|paymemo    |这笔账单的备注|
+|feedesc    |这笔账单的金额|
+|xmlmsg     |微信原始的 xml 信息|
+
+```json
+    {
+        "action":"reportTransferMessage",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "msg": {
+                "msgType": "4905",             
+                "myMsg" : "0",
+                "wxidFrom": "wxid_xxxxxx",
+                "wxidTo":  "wxid_xxxxx",
+                "nick" : "XXXX", 
+                "transferid": "",
+                "paysubtype": "",   
+                "paymemo": "",   
+                "feedesc": "",   
+                "xmlmsg": "xxxxxxx"
+            }
+        }
+    }
 ```
 
 ### 收到个人名片
@@ -572,7 +612,7 @@
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
             "msg": {
-                "msgType": "42",             
+                "msgType": 42,             
                 "myMsg" : "0",
                 "roomWxid" : "",                   
                 "wxidFrom"  : "",                   
@@ -634,7 +674,7 @@
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
             "msg": {
-                "msgType": "4901",             
+                "msgType": 34,             
                 "myMsg" : "0",                  
                 "roomWxid": "xxxxxxxx@chatroom",
                 "wxidFrom": "wxid_xxxxxx",
@@ -666,7 +706,7 @@
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
             "msg": {
-                "msgType": "4901",             
+                "msgType": 43,             
                 "myMsg" : "0",                  
                 "roomWxid": "xxxxxxxx@chatroom",
                 "wxidFrom": "wxid_xxxxxx",
@@ -680,7 +720,46 @@
     }
 ```
 
-#### 收到微信系统消息
+### 收到群相关系统消息
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|myMsg      |是否是本人发出的消息，1为是，0为不是|
+|roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
+|wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
+|wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
+|message    |具体的通知内容,纯文本格式|
+
+```json
+{
+    "action":"reportChatroomMessage",
+    "cwxid":"",
+    "data":{
+        "msg": {
+            "msgType": 10000,                    
+            "myMsg" : "",            
+            "roomWxid"  : "",    
+            "wxidFrom" : "", 
+            "wxidTo" : "",                 
+            "message": "xxxxxx",
+        }
+    }
+}
+```
+> 群相关系统消息示例:
+    1.有红包出没时:"发出红包，请在手机上查看"
+    2.修改群名称后:xxxxx修改群名为xxxxxxx
+    3.群主已恢复默认进群方式。
+    4.群主已启用“群聊邀请确认”，群成员需群主确认才能邀请朋友进群。
+    5.你已成为新群主
+    6.xxxxxx已成为新群主
+    7.你邀请xxxx加入了群聊
+    8.xxxx邀请xxxx加入了群聊
+    9.xxxxx通过扫描你分享的二维码加入群聊"
+    10.xxxxx通过扫描xxxxxx分享的二维码加入群聊"
+
+
+### 收到其他微信系统消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -689,38 +768,29 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|xmlmsg     |微信原始的 xml 信息|
+|message    |具体的通知内容,纯文本格式|
 
 ```json
     {
         "action":"reportSystemMessage",
-        "cwxid":"wxid_qg0saisth0r222",
+        "cwxid":"wxid_qgsssh0r222",
         "data":{
             "msg": {
-                "msgType": "10000",
+                "msgType": 10000,
                 "myMsg" :"",
                 "roomWxid":"",                 
                 "wxidFrom"  : "",                  
                 "wxidTo" :"wxid_sadkwqlkq", 
-                "xmlmsg": "xxxxxxx"
+                "message": "xxxxxxx"
             }
         }
     }
 ```
 
+
 > 系统通知示例:
-    1.发消息-被对方拉黑之后,raw_msg 为"消息已发出，但被对方拒收了"
+    1.发消息-被对方拉黑之后,message 为"消息已发出，但被对方拒收了"
     2.有红包出没时:"发出红包，请在手机上查看"
-    3.修改群名称后:xxxxx修改群名为xxxxxxx
-    其他:
-        群主已恢复默认进群方式。
-        群主已启用“群聊邀请确认”，群成员需群主确认才能邀请朋友进群。
-        你已成为新群主
-        xxxxxx已成为新群主
-        你邀请xxxx加入了群聊
-        xxxx邀请xxxx加入了群聊
-        xxxxx通过扫描你分享的二维码加入群聊"
-        xxxxx通过扫描xxxxxx分享的二维码加入群聊"
 
 
 ### 上报新的加好友请求
@@ -749,6 +819,22 @@
                 "v2":"xxxxxxx",            
                 "noticeWord":"xxxxxxx",
                 "xmlmsg":"xxxxxxxxxxx",     
+    }
+}
+```
+
+### 上报新的加好友请求
+#### 个别参数说明，未给出的则参考其他接口的说明
+|data 中的参数|参数的含义|
+|:----------|:--------|
+|code       |1 接受成功|
+
+```json
+{
+    "action":"reportAcceptChatroomInvite",
+    "cwxid":"wxid_qg0sassss222",
+    "data" : {
+                "code":1     
     }
 }
 ```
@@ -1126,6 +1212,23 @@ flag:
     }
 }
 ```
+
+### 接受群邀请
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|url          |入群链接的地址 (该值从上报的入群链接消息的url字段中获取)|
+
+```json
+{
+    "api":"acceptChatroomInvite",
+    "sendId":"",
+    "option":{
+        "url":"https://support...."
+    }
+}
+```
+
 <a name="cooperation"></a>
 ## 商务合作
 ![alt 联系方式](img/lianxi.jpg)
