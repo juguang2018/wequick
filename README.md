@@ -91,6 +91,7 @@
 21. 加群成员为好友(addRoomFriend)
 22. 退出群聊(exitChartRoom)
 23. 接受群邀请(acceptChatroomInvite)
+24. 接受转账(acceptBankTransfer)
 
 
 # receive_msg
@@ -1225,6 +1226,24 @@ flag:
     "sendId":"",
     "option":{
         "url":"https://support...."
+    }
+}
+```
+
+### 接受转账
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|transferid   |收哪一笔转账(reportTransferMessage 中的 transferid)|
+|wxid         |转账发起者wxid|
+
+```json
+{
+    "api":"acceptBankTransfer",
+    "sendId":"",
+    "option":{
+        "transferid":"",
+        "wxid":""
     }
 }
 ```
