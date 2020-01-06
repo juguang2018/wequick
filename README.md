@@ -826,16 +826,19 @@
 
 ### 上报接受群邀请结果
 #### 个别参数说明，未给出的则参考其他接口的说明
+注:为安全起见,不要在短时间内接收多个群的邀请
 |data 中的参数|参数的含义|
 |:----------|:--------|
 |code       |1 接受成功|
+|url        |acceptChatroomInvite 中的 url|
 
 ```json
 {
     "action":"reportAcceptChatroomInvite",
     "cwxid":"wxid_qg0sassss222",
     "data" : {
-                "code":1     
+        "code":1,
+        "url":""
     }
 }
 ```
