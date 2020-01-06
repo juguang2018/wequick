@@ -89,8 +89,8 @@
 19. 修改群名称(updateChatRoomName)
 20. 修改我在本群的昵称(updateRoomAsName)
 21. 加群成员为好友(addRoomFriend)
-22. 创建群聊(createChartRoom)
-23. 退出群聊(exitChartRoom)
+22. 创建群聊(createChatRoom)
+23. 退出群聊(exitChatRoom)
 24. 接受群邀请(acceptChatroomInvite)
 25. 接受转账(acceptBankTransfer)
 
@@ -1213,7 +1213,7 @@ flag:
 
 ```json
 {
-    "api":"createChartRoom",
+    "api":"createChatRoom",
     "sendId":"",
     "option":{
         "wxidLists":""
@@ -1229,7 +1229,7 @@ flag:
 
 ```json
 {
-    "api":"exitChartRoom",
+    "api":"exitChatRoom",
     "sendId":"",
     "option":{
         "chatroom":""
