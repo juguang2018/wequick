@@ -89,9 +89,10 @@
 19. 修改群名称(updateChatRoomName)
 20. 修改我在本群的昵称(updateRoomAsName)
 21. 加群成员为好友(addRoomFriend)
-22. 退出群聊(exitChartRoom)
-23. 接受群邀请(acceptChatroomInvite)
-24. 接受转账(acceptBankTransfer)
+22. 创建群聊(createChartRoom)
+23. 退出群聊(exitChartRoom)
+24. 接受群邀请(acceptChatroomInvite)
+25. 接受转账(acceptBankTransfer)
 
 
 # receive_msg
@@ -825,7 +826,7 @@
 ```
 
 ### 上报接受群邀请结果
-#### 个别参数说明，未给出的则参考其他接口的说明
+#### 参数说明
 注:为安全起见,不要在短时间内接收多个群的邀请
 
 |data 中的参数|参数的含义|
@@ -1198,6 +1199,24 @@ flag:
         "chatroom":"23XXXXX71@chatroom",
         "wxid":"xyz11111",
         "noticeWord":"你好！我是XXX"
+    }
+}
+```
+
+### 创建群聊
+注:每个微信号每天能创建的群是有上限的,无限制的创建群会带来封号风险
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|wxidLists    |要添加群聊的人员的微信id(由于群聊必须至少3个人, 因此必须包含至少2个好友的wxid)|
+
+```json
+{
+    "api":"createChartRoom",
+    "sendId":"",
+    "option":{
+        "wxidLists":""
     }
 }
 ```
