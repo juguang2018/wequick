@@ -21,19 +21,19 @@
 2. 通过 receive_msg 接口 return 发出
 
 ## 上报 退出登录（logout）的四种情况
-1. 点击 WeQuick 客户端的 【退出登录】 按钮，receive_msg 接口将收到如下的信息：
+1. 点击 WeQuick 客户端的 【退出登录】 按钮，receive_msg 接口将上报如下的信息：
 ```json
 {"data": {"action": "resLogout", "cwxid": "wxid_XXXXX0r222", "data": {"errorReason": "", "sendResult": "1"}}}
 ```
-2. 通过指令（Logout）退出微信时，receive_msg 接口将收到的信息如下：
+2. 通过指令（Logout）退出微信时，receive_msg 接口将上报的信息如下：
 ```json
 {"data": {"action": "resLogout", "cwxid": "wxid_XXXXX0r222", "data": {"errorReason": "", "sendResult": "1"}}}
 ```
-3. 点击 PC 微信的 【退出登录】 按钮时，receive_msg 接口将收到的信息如下：
+3. 点击 PC 微信的 【退出登录】 按钮时，receive_msg 接口将上报的信息如下：
 ```json
 {"data": {"action": "reportLogout", "cwxid": "wxid_qg0saisth0r222", "data": {"code": "1"}}}
 ```
-4. 手机端退出 PC 端的微信登录时，receive_msg 接口将收到的信息如下：
+4. 手机端退出 PC 端的微信登录时，receive_msg 接口将上报的信息如下：
 ```json
 {"data": {"action": "reportLogout", "cwxid": "wxid_qg0saisth0r222", "data": {"code": "1"}}}
 ```
@@ -50,19 +50,19 @@
 6. 上报联系人/公众号的wxid(reportUsersWxid)
 7. 上报查询到的联系人/公众号详细信息(reportUsersInfo)
 8. 上报某个群成员列表详细信息(reportChatRoomUserLists)
-9. 收到文本消息(reportTextMessage)
-10. 收到图片消息(reportPicMessage)
-11. 收到文件消息(reportFileMessage)
-12. 收到群邀请的链接消息(reportAddChatRoomMessage)
-13. 收到小程序消息(reportMiniMessage)
-14. 收到网页的链接消息(reportUrlMessage)
-15. 收到转账消息(reportTransferMessage)
-16. 收到个人名片(reportCardMessage)
-17. 收到表情消息(reportGifMessage)
-18. 收到语音消息消息(reportVoiceMessage)
-19. 收到视频消息(reportVideoMessage)
-21. 收到群相关系统消息(reportChatroomMessage)
-22. 收到其他微信系统消息(reportSystemMessage)
+9. 上报文本消息(reportTextMessage)
+10. 上报图片消息(reportPicMessage)
+11. 上报文件消息(reportFileMessage)
+12. 上报群邀请的链接消息(reportAddChatRoomMessage)
+13. 上报小程序消息(reportMiniMessage)
+14. 上报网页的链接消息(reportUrlMessage)
+15. 上报转账消息(reportTransferMessage)
+16. 上报个人名片(reportCardMessage)
+17. 上报表情消息(reportGifMessage)
+18. 上报语音消息消息(reportVoiceMessage)
+19. 上报视频消息(reportVideoMessage)
+21. 上报群相关系统消息(reportChatroomMessage)
+22. 上报其他微信系统消息(reportSystemMessage)
 23. 上报新的加好友请求(reportFriendAddRequest)
 24. 上报接受群邀请成功(reportAcceptChatroomInvite)
 
@@ -364,7 +364,7 @@
 }
 ```
 
-### 收到文本消息
+### 上报文本消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -394,7 +394,7 @@
     }
 ```
 
-### 收到图片消息
+### 上报图片消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -426,7 +426,7 @@
     }
 ```
 
-### 收到文件消息
+### 上报文件消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -457,7 +457,7 @@
         }
     }
 ```
-### 收到群邀请的链接消息
+### 上报群邀请的链接消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -491,7 +491,7 @@
 
 
 
-#### 收到小程序消息
+#### 上报小程序消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -522,7 +522,7 @@
 ```
 
 
-### 收到网页的链接消息
+### 上报网页的链接消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -560,7 +560,7 @@
     }
 
 ```
-### 收到转账消息
+### 上报转账消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -596,7 +596,7 @@
     }
 ```
 
-### 收到个人名片
+### 上报个人名片
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -626,7 +626,7 @@
     }
 ```
 
-### 收到表情消息
+### 上报表情消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -658,7 +658,7 @@
     }
 ```
 
-### 收到语音消息
+### 上报语音消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -688,7 +688,7 @@
     }
 ```
 
-### 收到视频消息
+### 上报视频消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
@@ -722,7 +722,7 @@
     }
 ```
 
-### 收到群相关系统消息
+### 上报群相关系统消息
 #### 参数说明
 |msg 中的参数| 参数的含义|
 |:----------|:---------|
@@ -761,7 +761,7 @@
     10.xxxxx通过扫描xxxxxx分享的二维码加入群聊"
 
 
-### 收到其他微信系统消息
+### 上报其他微信系统消息
 
 #### 参数说明
 |msg 中的参数| 参数的含义|
