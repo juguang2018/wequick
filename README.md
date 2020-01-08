@@ -126,7 +126,8 @@
 #### 参数说明
 |data 中的参数|参数说明|
 |:-----------|:-------|
-|message     |二维码图片的base64格式|
+|message     |二维码图片的 base64 格式,将这个字符串直接填到 img 标签的 src 就可以显示了|
+|sendID      |getLoginQrCode 发到客户端的 sendID|
 
 ```json
 {
@@ -134,6 +135,7 @@
     "cwxid":"null",
     "data":{
         "message":"",
+        "sendId":""
     }
 }
 ```
