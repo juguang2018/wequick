@@ -676,6 +676,7 @@
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
 |nick       |用户昵称，如果是群则为群昵称|
+|voiceIndex |语音文件下载后的本地路径|
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
@@ -690,6 +691,7 @@
                 "wxidFrom": "wxid_xxxxxx",
                 "wxidTo":  "wxid_xxxxx",
                 "nick" : "XXXX",  
+                "voiceIndex" : "XXXX",  
                 "xmlmsg": "xxxxxxx"
             }
         }
