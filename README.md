@@ -40,6 +40,11 @@
 
 ##接口所用编码均为utf-8编码
 
+## 服务端发出的指令格式应该是一个json数组，如下所示：
+```json
+[{"sendId":"","api":"sendTextMessage","option":{"wxid":"wxid_a0sssssy2f21","text":"123456"}}]
+```
+
 # receive_msg
 一.监听微信内部发生的各种事件,并主动向回调接口发送这些事件的详细信息. 这些事件的种类有:
 1. 上报登陆二维码(reportLoginQrCode)
