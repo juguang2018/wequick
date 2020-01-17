@@ -1,0 +1,2 @@
+http://127.0.0.1:4567/recieve_msg
+http://127.0.0.1:4567/send_msg
