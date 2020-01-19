@@ -38,7 +38,7 @@
 {"data": {"action": "reportLogout", "cwxid": "wxid_qg0saisth0r222", "data": {"code": "1"}}}
 ```
 
-##接口所用编码均为utf-8编码
+## 接口所用编码均为utf-8编码
 
 ## 服务端发出的指令格式应该是一个json数组，如下所示：
 ```json
@@ -98,6 +98,7 @@
 23. 退出群聊(exitChatRoom)
 24. 接受群邀请(acceptChatroomInvite)
 25. 接受转账(acceptBankTransfer)
+25. 关闭进程(closeProcess)
 
 
 # receive_msg
