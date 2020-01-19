@@ -1305,4 +1305,4 @@ flag:
 
 <a name="cooperation"></a>
 ## 商务合作
-![alt 联系方式](./img/lianxi.jpg)
+![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/lianxi.jpg)
