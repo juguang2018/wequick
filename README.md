@@ -55,17 +55,18 @@
 6. 上报联系人/公众号的wxid(reportUsersWxid)
 7. 上报查询到的联系人/公众号详细信息(reportUsersInfo)
 8. 上报某个群成员列表详细信息(reportChatRoomUserLists)
-9. 上报文本消息(reportTextMessage)
-10. 上报图片消息(reportPicMessage)
-11. 上报文件消息(reportFileMessage)
-12. 上报群邀请的链接消息(reportAddChatRoomMessage)
-13. 上报小程序消息(reportMiniMessage)
-14. 上报网页的链接消息(reportUrlMessage)
-15. 上报转账消息(reportTransferMessage)
-16. 上报个人名片(reportCardMessage)
-17. 上报表情消息(reportGifMessage)
-18. 上报语音消息消息(reportVoiceMessage)
-19. 上报视频消息(reportVideoMessage)
+9. 上报某个群成员的群昵称(reportGetChatRoomUserNick)
+10. 上报文本消息(reportTextMessage)
+11. 上报图片消息(reportPicMessage)
+12. 上报文件消息(reportFileMessage)
+13. 上报群邀请的链接消息(reportAddChatRoomMessage)
+14. 上报小程序消息(reportMiniMessage)
+15. 上报网页的链接消息(reportUrlMessage)
+16. 上报转账消息(reportTransferMessage)
+17. 上报个人名片(reportCardMessage)
+18. 上报表情消息(reportGifMessage)
+19. 上报语音消息消息(reportVoiceMessage)
+20. 上报视频消息(reportVideoMessage)
 21. 上报群相关系统消息(reportChatroomMessage)
 22. 上报其他微信系统消息(reportSystemMessage)
 23. 上报新的加好友请求(reportFriendAddRequest)
@@ -90,15 +91,16 @@
 15. 同意新好友,通过好友验证(acceptFriend)
 16. 修改好友备注(updateAsName)
 17. 获取某个群的群成员列表详细信息(getChatRoomUsers)
-18. 踢群成员(delChatRoomUser)
-19. 修改群名称(updateChatRoomName)
-20. 修改我在本群的昵称(updateRoomAsName)
-21. 加群成员为好友(addRoomFriend)
-22. 创建群聊(createChatRoom)
-23. 退出群聊(exitChatRoom)
-24. 接受群邀请(acceptChatroomInvite)
-25. 接受转账(acceptBankTransfer)
-26. 关闭进程(closeProcess)
+18. 获取某个群成员的群昵称(getChatRoomUserNick)
+19. 踢群成员(delChatRoomUser)
+20. 修改群名称(updateChatRoomName)
+21. 修改我在本群的昵称(updateRoomAsName)
+22. 加群成员为好友(addRoomFriend)
+23. 创建群聊(createChatRoom)
+24. 退出群聊(exitChatRoom)
+25. 接受群邀请(acceptChatroomInvite)
+26. 接受转账(acceptBankTransfer)
+27. 关闭进程(closeProcess)
 
 
 # receive_msg
@@ -378,6 +380,29 @@
 }
 ```
 
+### 上报某个群成员的群昵称
+
+#### 参数说明
+|msg 中的参数| 参数的含义|
+|:----------|:---------|
+|chatRoom   |群的微信id|
+|wxid       |群成员的微信id|
+|chatNick   |群成员的群昵称|
+
+```json
+    {
+        "action":"reportGetChatRoomUserNick",
+        "cwxid":"wxid_qg0ssssssth22",
+        "data":{
+            "msg": {
+                "chatRoom": "",  
+                "wxid" : "",  
+                "chatNick":"XXXX"
+            }
+        }
+    }
+```
+
 ### 上报文本消息
 
 #### 参数说明
@@ -393,7 +418,7 @@
 ```json
     {
         "action":"reportTextMessage",
-        "cwxid":"wxid_qg0saisth0r222",
+        "cwxid":"wxid_qg0ssssth0r222",
         "data":{
             "msg": {
                 "msgType": 1,  
@@ -1141,13 +1166,32 @@ flag:
 }
 ```
 
+### 获取某个群成员的群昵称
+
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|chatroom     |群的微信id|
+|wxid         |群成员的微信id|
+
+```json
+{
+    "api" : "getChatRoomUserNick",
+    "sendId":"",
+    "option" : {
+        "chatroom":"",
+        "wxid":""         
+    }
+}
+```
+
 ### 踢群成员，当前微信必须有踢人权限(为群主或者群管理员)
 
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
-|wxid    |需要获取的群的id|
-|chatroom    |群的微信id|
+|wxid         |需要获取的群的id|
+|chatroom     |群的微信id|
 
 ```json
 {
