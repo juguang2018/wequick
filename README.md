@@ -1286,6 +1286,22 @@ flag:
 }
 ```
 
+### 关闭进程
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|pid          |进程id(send_msg接口 中收到的 pid)|
+
+```json
+{
+    "api":"closeProcess",
+    "sendId":"",
+    "option":{
+        "pid":""
+    }
+}
+```
+
 <a name="cooperation"></a>
 ## 商务合作
 ![alt 联系方式](img/lianxi.jpg)
