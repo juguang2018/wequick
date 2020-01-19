@@ -2,12 +2,12 @@
 # 适配所有类型个人微信号及版本
 # 支持傻瓜式二次开发
 # WeQuick 接口规范
-![alt logo](img/logo.png)
+![alt logo](https://github.com/juguang2018/wequick/raw/master/img/logo.png)
 
 ------
 **商务合作请加微信：Displore_23**
 
-<img src="./img/QR.jpg" width="100" align=center/>
+<img src="https://github.com/juguang2018/wequick/raw/master/img/QR.jpg" width="100" align=center/>
 
 正常使用软件不会导致封号。 
 
