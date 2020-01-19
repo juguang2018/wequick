@@ -98,7 +98,7 @@
 23. 退出群聊(exitChatRoom)
 24. 接受群邀请(acceptChatroomInvite)
 25. 接受转账(acceptBankTransfer)
-25. 关闭进程(closeProcess)
+26. 关闭进程(closeProcess)
 
 
 # receive_msg
@@ -1291,7 +1291,7 @@ flag:
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
-|pid          |进程id(send_msg接口 中收到的 pid)|
+|pid          |进程id(send_msg 接口中收到的 pid)|
 
 ```json
 {
