@@ -61,7 +61,7 @@
 12. 上报文件消息(reportFileMessage)
 13. 上报群邀请的链接消息(reportAddChatRoomMessage)
 14. 上报小程序消息(reportMiniMessage)
-15. 上报网页的链接消息(reportUrlMessage)
+15. 上报网页的链接消息(reportXmlMessage)
 16. 上报转账消息(reportTransferMessage)
 17. 上报个人名片(reportCardMessage)
 18. 上报表情消息(reportGifMessage)
@@ -81,7 +81,7 @@
 5. 发送文本消息(sendTextMessage)
 6. 发送图片消息(sendPicMessage)
 7. 发送文件(sendFileMessage)
-8. 发送网页的链接消息(sendUrlMessage)
+8. 发送网页的链接消息(sendXmlMessage)
 9. 发送个人名片(sendCardMessage)
 10. 发送群邀请的链接消息(sendChatroom)
 11. 获取当前联系人列表(getContact)
@@ -412,7 +412,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |message    |消息内容，纯文本格式|
 
 ```json
@@ -425,8 +424,7 @@
                 "myMsg" : "0",  
                 "roomWxid":"123432432@chatroom",      
                 "wxidFrom"  : "wxid_sadkwqlXXX",     
-                "wxidTo" :"wxid_sadkwqlkq",
-                "nick" : "XXXX",        
+                "wxidTo" :"wxid_sadkwqlkq",      
                 "message" : "XXXX",
             }
         }
@@ -442,7 +440,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |fileIndex  |图片下载后的本地路径|
 |xmlmsg     |微信原始的 xml 信息|
 
@@ -456,8 +453,7 @@
                 "myMsg" : "0",                      
                 "roomWxid": "xxxxxxxx@chatroom", 
                 "wxidFrom": "wxid_xxxxxx",     
-                "wxidTo":  "wxid_xxxxx",       
-                "nick" : "XXXX",                
+                "wxidTo":  "wxid_xxxxx",                     
                 "fileIndex" : "XXXX",
                 "xmlmsg" : ""
             }
@@ -474,7 +470,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |fileIndex  |文件下载后的本地路径|
 |xmlmsg     |微信原始的 xml 信息|
 
@@ -488,8 +483,7 @@
                 "myMsg" : "0",                  
                 "roomWxid": "xxxxxxxx@chatroom",
                 "wxidFrom": "wxid_xxxxxx",
-                "wxidTo":  "wxid_xxxxx",
-                "nick" : "XXXX",   
+                "wxidTo":  "wxid_xxxxx",  
                 "fileIndex":"",
                 "xmlmsg": "xxxxxxx"
             }
@@ -505,7 +499,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |url        |链接的地址|
 |xmlmsg     |微信原始的 xml 信息|
 
@@ -519,8 +512,7 @@
                 "myMsg" : "0",                  
                 "roomWxid": "xxxxxxxx@chatroom", 
                 "wxidFrom": "wxid_xxxxxx",   
-                "wxidTo":  "wxid_xxxxx", 
-                "nick" : "XXXX",   
+                "wxidTo":  "wxid_xxxxx",  
                 "url" : "",   
                 "xmlmsg": "xxxxxxx"
             }
@@ -539,7 +531,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
@@ -553,7 +544,6 @@
                 "roomWxid": "xxxxxxxx@chatroom", 
                 "wxidFrom": "wxid_xxxxxx",
                 "wxidTo": "xxxxxxxxx",
-                "nick" : "",
                 "xmlmsg": "xxxxxxx"      
             }
         }
@@ -570,7 +560,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |title      |链接的标题|
 |url        |链接的地址|
 |desc       |链接的描述信息|
@@ -579,7 +568,7 @@
 
 ```json
     {
-        "action":"reportUrlMessage",
+        "action":"reportXmlMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
             "msg": {
@@ -588,7 +577,6 @@
                 "roomWxid": "xxxxxxxx@chatroom",
                 "wxidFrom": "wxid_xxxxxx",
                 "wxidTo":  "wxid_xxxxx",
-                "nick" : "XXXX", 
                 "title": "",
                 "url": "",
                 "desc": "",
@@ -607,7 +595,6 @@
 |myMsg      |是否是本人发出的消息，1为是，0为不是|
 |wxidFrom   |消息发送者的wxid|
 |wxidTo     |消息的接收者的wxid|
-|nick       |用户昵称|
 |transferid |转账的ID|
 |paysubtype |这笔账单的状态，1:发起转账时(包括我转账给他人，他人转账给我)；3:确认收账时(包括我确认收账，他人确认收账);4:退还转账(包括我退还转账，他人退还转账给我)|
 |paymemo    |这笔账单的备注|
@@ -624,7 +611,6 @@
                 "myMsg" : "0",
                 "wxidFrom": "wxid_xxxxxx",
                 "wxidTo":  "wxid_xxxxx",
-                "nick" : "XXXX", 
                 "transferid": "",
                 "paysubtype": "",   
                 "paymemo": "",   
@@ -644,7 +630,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
@@ -658,7 +643,6 @@
                 "roomWxid" : "",                   
                 "wxidFrom"  : "",                   
                 "wxidTo" :"wxid_sadkwqlkq",
-                "nick" : "",
                 "xmlmsg": "xxxxxxx"       
             }
         }
@@ -674,7 +658,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |url        |表情的url地址|
 |xmlmsg     |微信原始的 xml 信息|
 
@@ -689,7 +672,6 @@
                 "roomWxid": "xxxxxxxx@chatroom", 
                 "wxidFrom": "wxid_xxxxxx",
                 "wxidTo": "xxxxxxxxx",
-                "nick" : "",
                 "url" : "",
                 "xmlmsg": "xxxxxxx"      
             }
@@ -706,7 +688,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |voiceIndex |语音文件下载后的本地路径|
 |xmlmsg     |微信原始的 xml 信息|
 
@@ -720,8 +701,7 @@
                 "myMsg" : "0",                  
                 "roomWxid": "xxxxxxxx@chatroom",
                 "wxidFrom": "wxid_xxxxxx",
-                "wxidTo":  "wxid_xxxxx",
-                "nick" : "XXXX",  
+                "wxidTo":  "wxid_xxxxx",  
                 "voiceIndex" : "XXXX",  
                 "xmlmsg": "xxxxxxx"
             }
@@ -738,7 +718,6 @@
 |roomWxid   |聊天消息发生在哪个群(如果是私聊则为空)|
 |wxidFrom   |消息发送者的wxid 如果是自己发的消息这里的wxid就是自己的微信号|
 |wxidTo     |消息的接收者的wxid 如果发往群的消息,这个值就是群的wxid  如果是别人私聊给自己的消息,这里就是自己的微信号|
-|nick       |用户昵称，如果是群则为群昵称|
 |coverIndex |视频文件封面图片的本地路径|
 |videoIndex  |视频文件下载后的本地路径|
 |xmlmsg     |微信原始的 xml 信息|
@@ -753,8 +732,7 @@
                 "myMsg" : "0",                  
                 "roomWxid": "xxxxxxxx@chatroom",
                 "wxidFrom": "wxid_xxxxxx",
-                "wxidTo":  "wxid_xxxxx",
-                "nick" : "XXXX",   
+                "wxidTo":  "wxid_xxxxx",  
                 "coverIndex":"",
                 "videoIndex":"",
                 "xmlmsg": "xxxxxxx"
@@ -990,11 +968,11 @@
 }
 ```
 
-### 发送网页的链接消息(sendUrlMessage)
+### 发送网页的链接消息(sendXmlMessage)
 
 ```json
 {
-    "api" : "sendUrlMessage",
+    "api" : "sendXmlMessage",
     "sendId":"",
     "option" : {
         "wxid":"",
