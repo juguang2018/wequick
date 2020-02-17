@@ -70,7 +70,6 @@
 21. 上报群相关系统消息(reportChatroomMessage)
 22. 上报其他微信系统消息(reportSystemMessage)
 23. 上报新的加好友请求(reportFriendAddRequest)
-24. 上报接受群邀请成功(reportAcceptChatroomInvite)
 
 # send_msg
 二. 执行回调接口下发的指令: 这些指令包括:
@@ -98,9 +97,8 @@
 22. 加群成员为好友(addRoomFriend)
 23. 创建群聊(createChatRoom)
 24. 退出群聊(exitChatRoom)
-25. 接受群邀请(acceptChatroomInvite)
-26. 接受转账(acceptBankTransfer)
-27. 关闭进程(closeProcess)
+25. 接受转账(acceptBankTransfer)
+26. 关闭进程(closeProcess)
 
 
 # receive_msg
@@ -387,7 +385,7 @@
 |:----------|:---------|
 |chatRoom   |群的微信id|
 |wxid       |群成员的微信id|
-|chatNick   |群成员的群昵称|
+|chatNick   |群成员的群昵称(如果设置了备注,则显示为备注)|
 
 ```json
     {
@@ -866,26 +864,6 @@
 }
 ```
 
-### 上报接受群邀请结果
-#### 参数说明
-注:为安全起见,不要在短时间内接收多个群的邀请
-
-|data 中的参数|参数的含义|
-|:----------|:--------|
-|code       |1 接受成功|
-|url        |acceptChatroomInvite 中的 url|
-
-```json
-{
-    "action":"reportAcceptChatroomInvite",
-    "cwxid":"wxid_qg0sassss222",
-    "data" : {
-        "code":1,
-        "url":""
-    }
-}
-```
-
 # send_msg
 ## 数据格式
 ```json
@@ -1293,22 +1271,6 @@ flag:
     "sendId":"",
     "option":{
         "chatroom":""
-    }
-}
-```
-
-### 接受群邀请
-#### 参数说明
-|option中的参数|参数的含义|
-|:------------|:--------|
-|url          |入群链接的地址 (该值从上报的入群链接消息的url字段中获取)|
-
-```json
-{
-    "api":"acceptChatroomInvite",
-    "sendId":"",
-    "option":{
-        "url":"https://support...."
     }
 }
 ```
