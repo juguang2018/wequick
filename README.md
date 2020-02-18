@@ -8,7 +8,7 @@
 **商务合作请加微信：Displore_23**
 
 <img src="https://github.com/juguang2018/wequick/raw/master/img/QR.jpg" width="100" align=center/>
-![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/客服二维码.png)
+![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/service.png)
 
 正常使用软件不会导致封号。 
 
@@ -1313,4 +1313,4 @@ flag:
 <a name="cooperation"></a>
 ## 商务合作
 ![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/lianxi.jpg)
-![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/客服二维码.png)
+![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/service.png)
