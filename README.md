@@ -1314,4 +1314,4 @@ flag:
 ## 商务合作
 ![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/lianxi.jpg)
 
-(https://github.com/juguang2018/wequick/raw/master/img/service.png)
+![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/service.png)
