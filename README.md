@@ -8,7 +8,7 @@
 **商务合作请加微信：Displore_23**
 
 <img src="https://github.com/juguang2018/wequick/raw/master/img/QR.jpg" width="100" align=center/>
-<img src="https://github.com/juguang2018/wequick/raw/master/img/service.png" width="100" align=center/>
+<img src="https://github.com/juguang2018/wequick/raw/master/img/service.png" width="120" align=center/>
 
 正常使用软件不会导致封号。 
 
