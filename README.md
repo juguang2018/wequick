@@ -138,11 +138,13 @@
 
 ```json
 {
-    "action":"reportLoginQrCode",
-    "cwxid":"null",
     "data":{
-        "message":"",
-        "sendId":""
+        "action":"reportLoginQrCode",
+        "cwxid":"null",
+        "data":{
+            "message":"",
+            "sendId":""
+        }
     }
 }
 ```
@@ -155,10 +157,12 @@
 
 ```json
 {
-    "action":"loginStatus",
-    "cwxid":"wxid_qg0saisth0r222",
     "data":{
-        "code":""
+        "action":"loginStatus",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "code":""
+        }
     }
 }
 ```
@@ -179,19 +183,21 @@
 
 ```json
 {
-    "action":"reportLoginUser",
-    "cwxid":"wxid_qg0saisth0r222",
     "data":{
-        "wxid":  "wxid",
-        "username": "xxxxx",
-        "nick":"xxxxx",
-        "asName" :"xxxx",
-        "headPic":"http://xxxxxxxx",
-        "sex" : 0, 
-        "country":"xxx",
-        "province":"xxxx",
-        "city":"xxxxx",
-        "uin":88888888
+        "action":"reportLoginUser",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "wxid":  "wxid",
+            "username": "xxxxx",
+            "nick":"xxxxx",
+            "asName" :"xxxx",
+            "headPic":"http://xxxxxxxx",
+            "sex" : 0, 
+            "country":"xxx",
+            "province":"xxxx",
+            "city":"xxxxx",
+            "uin":88888888
+        }
     }
 }
 ```
@@ -204,10 +210,12 @@
 
 ```json
 {
-    "action":"reportLogout",
-    "cwxid":"wxid_qg0saisth0r222",
     "data":{
-        "code":""
+        "action":"reportLogout",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "code":""
+        }
     }
 }
 ```
@@ -246,40 +254,42 @@
 
 ```json
 {
-    "action":"reportContact",
-    "cwxid":"wxid_qg0saisth0r222",
     "data":{
-        "friendList":[
-            {
-                "wxid":  "wxid",
-                "username": "xxxxx",
-                "nick":"xxxxx",
-                "asName" :"xxxx",
-                "headPic":"http://xxxxxxxx",
-                "sex" : 0, 
-                "country":"xxx",
-                "province":"xxxx",
-                "city":"xxxxx",
-                "isFriend":""
-            }
-        ],
-        "groupList":[
-            {
-                "wxid": "xxxxxxx",
-                "nick": "xxxxxx",
-                "owner": "xxxxxxxx",
-                "roomCount":  100,
-                "headPic":"http://xxxxxxxx",
-                "userLists" :["wxid_xxx1","wxid_xxx2","..."]
-            }
-        ],
-        "publicList":[
-            {
-                "wxid":  "gh_xxxxx",
-                "nick":"xxxxx",
-                "headPic":"http://xxxxxxxxxx"
-            }
-        ]
+        "action":"reportContact",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data":{
+            "friendList":[
+                {
+                    "wxid":  "wxid",
+                    "username": "xxxxx",
+                    "nick":"xxxxx",
+                    "asName" :"xxxx",
+                    "headPic":"http://xxxxxxxx",
+                    "sex" : 0, 
+                    "country":"xxx",
+                    "province":"xxxx",
+                    "city":"xxxxx",
+                    "isFriend":""
+                }
+            ],
+            "groupList":[
+                {
+                    "wxid": "xxxxxxx",
+                    "nick": "xxxxxx",
+                    "owner": "xxxxxxxx",
+                    "roomCount":  100,
+                    "headPic":"http://xxxxxxxx",
+                    "userLists" :["wxid_xxx1","wxid_xxx2","..."]
+                }
+            ],
+            "publicList":[
+                {
+                    "wxid":  "gh_xxxxx",
+                    "nick":"xxxxx",
+                    "headPic":"http://xxxxxxxxxx"
+                }
+            ]
+        }
     }
 }
 ```
@@ -287,10 +297,12 @@
 ### 上报联系人/公众号的wxid
 ```json
 {
-    "action" : "reportUsersWxid",
-    "cwxid" : "xxxxxx",
-    "data" : {
-        "userLists" : ["wxid_1","wxid_2"]
+    "data":{
+        "action" : "reportUsersWxid",
+        "cwxid" : "xxxxxx",
+        "data" : {
+            "userLists" : ["wxid_1","wxid_2"]
+        }
     }
 }
 ```
@@ -311,22 +323,24 @@
 
 ```json
 {
-    "action" : "reportUsersInfo",
-    "cwxid" : "xxxxxx",
-    "data" : {
-        "userLists" : [
-            {
-                "wxid":  "wxid",
-                "username": "xxxxx",
-                "nick":"xxxxx",
-                "asName" :"xxxx",
-                "headPic":"http://xxxxxxxx",
-                "sex" : "xx" ,
-                "country":"xxx",
-                "province":"xxxx",
-                "city":"xxxxx"
-            }
-        ]
+    "data":{
+        "action" : "reportUsersInfo",
+        "cwxid" : "xxxxxx",
+        "data" : {
+            "userLists" : [
+                {
+                    "wxid":  "wxid",
+                    "username": "xxxxx",
+                    "nick":"xxxxx",
+                    "asName" :"xxxx",
+                    "headPic":"http://xxxxxxxx",
+                    "sex" : "xx" ,
+                    "country":"xxx",
+                    "province":"xxxx",
+                    "city":"xxxxx"
+                }
+            ]
+        }
     }
 }
 ```
@@ -355,26 +369,28 @@
 
 ```json
 {
-    "action":"reportChatRoomUserLists",
-    "cwxid" : "wxid_fo1039029348sfj",
-    "data" : {
-        "wxid":"7510115058@chatroom",
-        "owner":"xxxxx",
-        "nick":"", 
-        "headPic":"",
-        "roomCount":"",
-        "userLists":[
-           {
-                "wxid":"",    
-                "username":"",      
-                "nick":"",
-                "headPic":"",
-                "sex":"2",
-                "country":"xxx",
-                "province":"xxx",
-                "city":"xxx"
-           }
-       ]
+    "data":{
+        "action":"reportChatRoomUserLists",
+        "cwxid" : "wxid_fo1039029348sfj",
+        "data" : {
+            "wxid":"7510115058@chatroom",
+            "owner":"xxxxx",
+            "nick":"", 
+            "headPic":"",
+            "roomCount":"",
+            "userLists":[
+               {
+                    "wxid":"",    
+                    "username":"",      
+                    "nick":"",
+                    "headPic":"",
+                    "sex":"2",
+                    "country":"xxx",
+                    "province":"xxx",
+                    "city":"xxx"
+               }
+           ]
+        }
     }
 }
 ```
@@ -389,7 +405,8 @@
 |chatNick   |群成员的群昵称(如果设置了备注,则显示为备注)|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportGetChatRoomUserNick",
         "cwxid":"wxid_qg0ssssssth22",
         "data":{
@@ -400,6 +417,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报文本消息
@@ -415,7 +433,8 @@
 |message    |消息内容，纯文本格式|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportTextMessage",
         "cwxid":"wxid_qg0ssssth0r222",
         "data":{
@@ -430,6 +449,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报图片消息
@@ -446,7 +466,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportPicMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -462,6 +483,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报文件消息
@@ -478,7 +500,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportFileMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -494,6 +517,7 @@
             }
         }
     }
+}
 ```
 ### 上报群邀请的链接消息
 
@@ -509,7 +533,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportAddChatRoomMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -525,6 +550,7 @@
             }
         }
     }
+}
 ```
 
 
@@ -542,7 +568,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportMiniMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -557,6 +584,7 @@
             }
         }
     }
+}
 ```
 
 
@@ -577,7 +605,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportUrlMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -596,7 +625,7 @@
             }
         }
     }
-
+}
 ```
 ### 上报转账消息
 
@@ -614,7 +643,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportTransferMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -632,6 +662,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报个人名片
@@ -647,7 +678,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportCardMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -662,6 +694,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报表情消息
@@ -678,7 +711,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportGifMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -694,6 +728,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报语音消息
@@ -710,7 +745,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportVoiceMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -726,6 +762,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报视频消息
@@ -743,7 +780,8 @@
 |xmlmsg     |微信原始的 xml 信息|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportVideoMessage",
         "cwxid":"wxid_qg0saisth0r222",
         "data":{
@@ -760,6 +798,7 @@
             }
         }
     }
+}
 ```
 
 ### 上报群相关系统消息
@@ -774,16 +813,18 @@
 
 ```json
 {
-    "action":"reportChatroomMessage",
-    "cwxid":"",
     "data":{
-        "msg": {
-            "msgType": 10000,                    
-            "myMsg" : "",            
-            "roomWxid"  : "",    
-            "wxidFrom" : "", 
-            "wxidTo" : "",                 
-            "message": "xxxxxx",
+        "action":"reportChatroomMessage",
+        "cwxid":"",
+        "data":{
+            "msg": {
+                "msgType": 10000,                    
+                "myMsg" : "",            
+                "roomWxid"  : "",    
+                "wxidFrom" : "", 
+                "wxidTo" : "",                 
+                "message": "xxxxxx",
+            }
         }
     }
 }
@@ -813,7 +854,8 @@
 |message    |具体的通知内容,纯文本格式|
 
 ```json
-    {
+{
+    "data":{
         "action":"reportSystemMessage",
         "cwxid":"wxid_qgsssh0r222",
         "data":{
@@ -827,6 +869,7 @@
             }
         }
     }
+}
 ```
 
 
@@ -846,21 +889,23 @@
 
 ```json
 {
-    "action":"reportFriendAddRequest",
-    "cwxid":"wxid_qg0saisth0r222",
-    "data" : {
-                "wxid":"",    
-                "username":"",      
-                "nick":"",            
-                "headPic":"",
-                "sex":"2",
-                "country":"xxx",
-                "province":"xxx",
-                "city":"xxx",
-                "v1":"xxxxxx",              
-                "v2":"xxxxxxx",            
-                "noticeWord":"xxxxxxx",
-                "xmlmsg":"xxxxxxxxxxx",     
+    "data":{
+        "action":"reportFriendAddRequest",
+        "cwxid":"wxid_qg0saisth0r222",
+        "data" : {
+                    "wxid":"",    
+                    "username":"",      
+                    "nick":"",            
+                    "headPic":"",
+                    "sex":"2",
+                    "country":"xxx",
+                    "province":"xxx",
+                    "city":"xxx",
+                    "v1":"xxxxxx",              
+                    "v2":"xxxxxxx",            
+                    "noticeWord":"xxxxxxx",
+                    "xmlmsg":"xxxxxxxxxxx",     
+        }
     }
 }
 ```
