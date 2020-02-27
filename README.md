@@ -98,8 +98,9 @@
 22. 加群成员为好友(addRoomFriend)
 23. 创建群聊(createChatRoom)
 24. 退出群聊(exitChatRoom)
-25. 接受转账(acceptBankTransfer)
-26. 关闭进程(closeProcess)
+25. 接受群邀请(acceptChatroomInvite)
+26. 接受转账(acceptBankTransfer)
+27. 关闭进程(closeProcess)
 
 
 # receive_msg
@@ -1317,6 +1318,22 @@ flag:
     "sendId":"",
     "option":{
         "chatroom":""
+    }
+}
+```
+
+### 接受群邀请
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|url          |入群链接的地址 (该值从上报的入群链接消息的url字段中获取)|
+
+```json
+{
+    "api":"acceptChatroomInvite",
+    "sendId":"",
+    "option":{
+        "url":"https://support...."
     }
 }
 ```
