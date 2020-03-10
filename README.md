@@ -71,6 +71,7 @@
 21. 上报群相关系统消息(reportChatroomMessage)
 22. 上报其他微信系统消息(reportSystemMessage)
 23. 上报新的加好友请求(reportFriendAddRequest)
+24. 上报新群(reportChatRoomChange)
 
 # send_msg
 二. 执行回调接口下发的指令: 这些指令包括:
@@ -906,6 +907,26 @@
                     "v2":"xxxxxxx",            
                     "noticeWord":"xxxxxxx",
                     "xmlmsg":"xxxxxxxxxxx",     
+        }
+    }
+}
+```
+
+### 上报新群
+#### 个别参数说明，未给出的则参考其他接口的说明
+|msg 中的参数|参数的含义|
+|:----------|:--------|
+|nick       |群昵称，可能为空|
+|chatroom   |群的wxid|
+
+```json
+{
+    "data":{
+        "action":"reportChatRoomChange",
+        "cwxid":"",
+        "data" : {
+                    "nick":"",
+                    "chatroom":  "",  
         }
     }
 }
