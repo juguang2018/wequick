@@ -72,6 +72,7 @@
 22. 上报其他微信系统消息(reportSystemMessage)
 23. 上报新的加好友请求(reportFriendAddRequest)
 24. 上报新群(reportChatRoomChange)
+25. 上报上传客户端上传文件到服务端结果(resUploadFile)
 
 # send_msg
 二. 执行回调接口下发的指令: 这些指令包括:
@@ -101,7 +102,8 @@
 24. 退出群聊(exitChatRoom)
 25. 接受群邀请(acceptChatroomInvite)
 26. 接受转账(acceptBankTransfer)
-27. 关闭进程(closeProcess)
+27. 上传客户端文件到服务器(uploadFile)
+28. 关闭进程(closeProcess)
 
 
 # receive_msg
@@ -927,6 +929,26 @@
         "data" : {
                     "nick":"",
                     "chatroom":  "",  
+        }
+    }
+}
+```
+
+### 上报上传客户端上传文件到服务端
+#### 个别参数说明，未给出的则参考其他接口的说明
+|msg 中的参数|参数的含义|
+|:----------|:--------|
+|sendResult |服务端接收文件的返回值|
+
+```json
+{
+    "data":{
+        "action":"resUploadFile",
+        "cwxid":"",
+        "data" : {
+                    "errorReason": "", 
+                    "sendId": "8859663", 
+                    "sendResult": ""
         }
     }
 }
