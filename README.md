@@ -1399,6 +1399,25 @@ flag:
 }
 ```
 
+### 上传文件到服务器
+#### 参数说明
+|option中的参数|参数的含义|
+|:------------|:--------|
+|fileUrl      |文件地址（如：C:/work/demo.md）|
+|upUrl        |文件上传的地址（如：http://xxx/upload）|
+注：接受上传文件的服务端必须返回一个数字型状态码，这个状态码会返回到sendResult
+
+```json
+{
+    "api":"uploadFile",
+    "sendId":"",
+    "option":{
+        "fileUrl":"",
+        "upUrl":""
+    }
+}
+```
+
 ### 关闭进程
 #### 参数说明
 |option中的参数|参数的含义|
