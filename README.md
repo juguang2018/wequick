@@ -97,13 +97,12 @@
 19. 踢群成员(delChatRoomUser)
 20. 修改群名称(updateChatRoomName)
 21. 修改我在本群的昵称(updateRoomAsName)
-22. 加群成员为好友(addRoomFriend)
-23. 创建群聊(createChatRoom)
-24. 退出群聊(exitChatRoom)
-25. 接受群邀请(acceptChatroomInvite)
-26. 接受转账(acceptBankTransfer)
-27. 上传客户端文件到服务器(uploadFile)
-28. 关闭进程(closeProcess)
+22. 创建群聊(createChatRoom)
+23. 退出群聊(exitChatRoom)
+24. 接受群邀请(acceptChatroomInvite)
+25. 接受转账(acceptBankTransfer)
+26. 上传客户端文件到服务器(uploadFile)
+27. 关闭进程(closeProcess)
 
 
 # receive_msg
@@ -1306,27 +1305,6 @@ flag:
     "option" : {
         "chatroom":"",            
         "nick":""
-    }
-}
-```
-
-###  加群成员为好友（两条此指令之间的间隔时间不能低于5s）
-
-#### 参数说明
-|option中的参数|参数的含义|
-|:------------|:--------|
-|chatroom    |群的微信id|
-|wxid        |要加为好友的个人微信id|
-|noticeWord  |打招呼的消息|
-
-```json
-{
-    "api" : "addRoomFriend",
-    "sendId":"",
-    "option" : {
-        "chatroom":"23XXXXX71@chatroom",
-        "wxid":"xyz11111",
-        "noticeWord":"你好！我是XXX"
     }
 }
 ```
