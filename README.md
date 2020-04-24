@@ -2,12 +2,12 @@
 # 适配所有类型个人微信号及版本
 # 支持傻瓜式二次开发
 # WeQuick 接口规范
-![alt logo](ttps://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png)
+![alt logo](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png)
 
 ------
 **商务合作请加微信：DisploreUpup**
 
-<img src="ttps://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/QR.jpg" width="100" align=center/>
+<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/QR.jpg" width="100" align=center/>
 <img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png" width="120" align=center/>
 
 正常使用软件不会导致封号。 
@@ -1436,6 +1436,6 @@ flag:
 
 <a name="cooperation"></a>
 ## 商务合作
-![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/lianxi.jpg)
+![alt 联系方式](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/lianxi.jpg)
 
-![alt 联系方式](https://github.com/juguang2018/wequick/raw/master/img/service.png)
+![alt 联系方式](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png)
