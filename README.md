@@ -5,9 +5,9 @@
 ![alt logo](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png)
 
 ------
-**商务合作请加微信：DisploreUpup**
+**商务合作请加微信：abcdefg_12345654321**
 
-<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/QR.jpg" width="100" align=center/>
+<img src="https://github.com/juguang2018/wequick/blob/master/img/xiaore.jpg" width="100" align=center/>
 <img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png" width="120" align=center/>
 
 正常使用软件不会导致封号。 
@@ -1436,6 +1436,6 @@ flag:
 
 <a name="cooperation"></a>
 ## 商务合作
-![alt 联系方式](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/lianxi.jpg)
+![alt 联系方式](https://github.com/juguang2018/wequick/blob/master/img/xiaore.jpg)
 
 ![alt 联系方式](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png)
