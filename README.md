@@ -7,7 +7,7 @@
 ------
 **商务合作请加微信：abcdefg_12345654321**
 
-<img src="https://github.com/juguang2018/wequick/blob/master/img/xiaore.jpg" width="100" align=center/>
+<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/xiaore.jpg" width="100" align=center/>
 <img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png" width="120" align=center/>
 
 正常使用软件不会导致封号。 
