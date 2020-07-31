@@ -10,7 +10,6 @@
 <img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/xiaore.jpg" width="120" align=center/>
 
 正常使用软件不会导致封号。 
-<a href="#test">跳转</ a>
 
 
 **杀毒软件会对软件的正常运行构成影响，导致各种问题，请在使用前关闭杀毒软件。**
@@ -123,7 +122,7 @@
     "data" : {}
 }
 ```
-<a name="test">demo</ a>
+
 ### send_msg 任务下发到DLL的响应
 ```json
 {
