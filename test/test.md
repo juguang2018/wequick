@@ -191,8 +191,7 @@
 }
 ```
 
-### 1.上报登陆二维码(reportQrCodeMessage)
-### <span id="reportQrCodeMessage">跳转内容目标</span>
+### <span id="reportQrCodeMessage">1.上报登陆二维码(reportQrCodeMessage)</span>
 #### 参数说明
 |data 中的参数|参数说明|
 |:-----------|:-------|
