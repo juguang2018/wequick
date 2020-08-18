@@ -30,7 +30,7 @@
 # receive_msg
 一.监听微信内部发生的各种事件,并主动向回调接口发送这些事件的详细信息. 这些事件的种类有:  
 ### 登录登出
-1. [上报登陆二维码(reportQrCodeMessage)](#1.上报登陆二维码(reportQrCodeMessage))  
+1. [上报登陆二维码(reportQrCodeMessage)](#reportQrCodeMessage)  
 1. [上报当前登录微信详细信息(reportLoginUser)](#2.上报当前登录微信详细信息(reportLoginUser))  
 1.
 1. [上报退出登录事件(reportLogout)](#3.上报退出登录事件(reportLogout))  
@@ -192,6 +192,8 @@
 ```
 
 ### 1.上报登陆二维码(reportQrCodeMessage)
+### <span id="reportQrCodeMessage">跳转内容目标</span>
+<span id="reportQrCodeMessage">跳转内容目标</span>
 #### 参数说明
 |data 中的参数|参数说明|
 |:-----------|:-------|
