@@ -42,7 +42,6 @@
 10. [上报联系人删除通知(reportContactDel)](#reportContactDel)  
 ### 群相关
 11. [上报普通群列表(reportChatRooms)](#reportChatRooms)  
-12. [上报普通群成员昵称()](#)  
 13. [上报企业群列表(reportImRooms)](#reportImRooms)  
 14. [上报单个普通群成员信息(reportSingleChatRoomMembers)](#reportSingleChatRoomMembers)  
 15. [上报单个企业群成员信息(reportSingleImRoomMembers)](#reportSingleImRoomMembers)  
@@ -109,7 +108,6 @@
 21. [添加通过任意手机号/微信号/QQ号查询的联系人(addSearchContact)](#addSearchContact)  
 ### 群相关
 22. [获取普通群列表(getChatRooms)](#getChatRooms)  
-23. [获取普通群成员昵称()](#)  
 24. [获取企业群列表(getImRooms)](#getImRooms)  
 25. [获取单个普通群成员信息(getSingleChatRoomMembers)](#getSingleChatRoomMembers)  
 26. [获取单个企业群成员信息(getSingleImRoomMembers)](#getSingleImRoomMembers)  
@@ -1821,6 +1819,7 @@
 |:--------------|:---------|
 |6              |好友验证, 加之前加过的人|
 |14             |添加群好友|
+|15             |通过查询添加|
 |17             |通过名片添加，需要传v1值|
 
 ```json
