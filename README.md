@@ -2844,7 +2844,7 @@
 |extend       |查询语句标记字段|
 
 |相关查询|sql语句|数据库|
-|:------------|:--------|
+|:------------|:--------|:--------|
 |查询企业好友  |select UserName,NickName,SmallHeadImgUrl,Remark from OpenIMContact where UserName like '%openim' and Type%2=1|db:7|
 |查询全部企业群|select UserName,NickName,SmallHeadImgUrl from OpenIMContact where UserName like '%@im.chatroom' and Type !=0|db:7|
 |查询企业群群主|select RoomName,Owner from OpenIMChatroomData|db:7|
