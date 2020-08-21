@@ -9,6 +9,10 @@
 
 <img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/xiaore.jpg" width="120" align=center/>
 
+**商务合作请加微信：DiscoveryUpup**
+
+<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png" width="120" align=center/>
+
 正常使用软件不会导致封号。
 
 **杀毒软件会对软件的正常运行构成影响，导致各种问题，请在使用前关闭杀毒软件。**
@@ -2932,6 +2936,10 @@
 }
 ```
 
-<a name="cooperation"></a>
-## 商务合作
-![alt 联系方式](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png)
+**商务合作请加微信：abcdefg_12345654321**
+
+<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/xiaore.jpg" width="200" align=center/>
+
+**商务合作请加微信：DiscoveryUpup**
+
+<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/service.png" width="200" align=center/>
