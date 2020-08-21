@@ -2855,7 +2855,7 @@
 |查询单个企业微信群信息|select UserName,NickName,SmallHeadImgUrl from OpenIMContact where UserName='12321321@im.chatroom'|db:7|
 |查询企业群中的企业微信用户信息|select UserName,NickName,SmallHeadImgUrl from OpenIMContact where UserName in ('wxid0','wxid1')|db:7|
 |查询企业群中的非企业微信用户信息|select UserName,Alias,NickName,Remark from Contact where UserName in ('wxid0','wxid1')|db:1|
-|查询企业群中的非企业微信用户信息|select usrName,smallHeadImgUrl from ContactHeadImgUrl where usrName in ('wxid0','wxid1')|db:1|
+|查询企业群中的非企业微信用户头像信息|select usrName,smallHeadImgUrl from ContactHeadImgUrl where usrName in ('wxid0','wxid1')|db:1|
 
 |db示例|参数的含义|数据库|
 |:------------|:--------|:--------|
