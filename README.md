@@ -1860,7 +1860,7 @@
 
 ```json
 {
-    "api" : "updateAsName",
+    "api" : "updateRemark",
     "sendId":"",
     "option" : {
         "wxid":"",
