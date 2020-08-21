@@ -2157,7 +2157,7 @@
 |wxidList     |要邀请的微信id|
 
 > 注意:  
-    人数少于40人的群，调用该接口，不需要好友同意即可直接拉入群
+    对于人多的群，调用该接口，需要好友同意
 
 ```json
 {
@@ -2407,14 +2407,17 @@
 |text         |消息文本|
 |atlist       |@人的wxid|
 
+> 注意:  
+    文本消息text的内容中设置占位符{$@},代表被@群成员，占位符的数量必须和atlist中的微信号数量相等。
+
 ```json
 {
     "api" : "sendAtTextMessage",
     "sendId":"",
     "option" : {
         "wxid":"",
-        "text":"",
-        "atlist":""
+        "text":"你好{$@},你好{$@},哈哈哈",
+        "atlist":["wxid_xxx","wxid_xxx"]
     }
 }
 ```
