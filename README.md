@@ -46,44 +46,44 @@
 10. [上报联系人删除通知(reportContactDel)](#reportContactDel)  
 ### 群相关
 11. [上报普通群列表(reportChatRooms)](#reportChatRooms)  
-13. [上报企业群列表(reportImRooms)](#reportImRooms)  
-14. [上报单个普通群成员信息(reportSingleChatRoomMembers)](#reportSingleChatRoomMembers)  
-15. [上报单个企业群成员信息(reportSingleImRoomMembers)](#reportSingleImRoomMembers)  
-16. [上报通过二维码进群返回状态(reportAcceptQrCodeChatRoom)](#reportAcceptQrCodeChatRoom)  
-17. [上报群成员新增通知(reportChatRoomMemberAdd)](#reportChatRoomMemberAdd)  
-18. [上报群成员删除通知(reportChatRoomMemberDel)](#reportChatRoomMemberDel)  
-19. [上报检测到的新群通知(reportNewChatRoom)](#reportNewChatRoom)  
-20. [上报退群或被踢通知(reportChatRoomQuit)](#reportChatRoomQuit)  
+12. [上报企业群列表(reportImRooms)](#reportImRooms)  
+13. [上报单个普通群成员信息(reportSingleChatRoomMembers)](#reportSingleChatRoomMembers)  
+14. [上报单个企业群成员信息(reportSingleImRoomMembers)](#reportSingleImRoomMembers)  
+15. [上报通过二维码进群返回状态(reportAcceptQrCodeChatRoom)](#reportAcceptQrCodeChatRoom)  
+16. [上报群成员新增通知(reportChatRoomMemberAdd)](#reportChatRoomMemberAdd)  
+17. [上报群成员删除通知(reportChatRoomMemberDel)](#reportChatRoomMemberDel)  
+18. [上报检测到的新群通知(reportNewChatRoom)](#reportNewChatRoom)  
+19. [上报退群或被踢通知(reportChatRoomQuit)](#reportChatRoomQuit)  
 ### 消息相关
-21. [上报文本消息(reportTextMessage)](#reportTextMessage)  
-22. [上报图片消息(reportPicMessage)](#reportPicMessage)  
-23. [上报文件消息(reportFileMessage)](#reportFileMessage)  
-24. [上报视频消息(reportVideoMessage)](#reportVideoMessage)  
-25. [上报语音消息(reportVoiceMessage)](#reportVoiceMessage)  
-26. [上报GIF表情消息(reportGifMessage)](#reportGifMessage)  
-27. [上报个人名片消息(reportCardMessage)](#reportCardMessage)  
-28. [上报位置消息(reportLocationMessage)](#reportLocationMessage)  
-29. [上报链接消息(网页或群邀请)(reportLinkMessage)](#reportLinkMessage)  
-30. [上报小程序消息(reportMiniMessage)](#reportMiniMessage)  
-31. [上报转账消息(reportTransferMessage)](#reportTransferMessage)  
-32. [上报无痕清理僵尸粉消息(reportZombieCheckMessage)](#reportZombieCheckMessage)  
-33. [上报解密图片消息(reportDecryptPicMessage)](#reportDecryptPicMessage)  
-34. [上报二维码付款消息(reportQrCodeWcPay)](#reportQrCodeWcPay)  
-35. [上报收藏列表(reportFavitems)](#reportFavitems)  
-36. [上报系统消息(reportSystemMessage)](#reportSystemMessage)  
-37. [上报其他消息(reportOtherMessage)](#reportOtherMessage)  
-38. [上报其他接收应用未知消息(reportOtherAppMessage)](#reportOtherAppMessage)  
+20. [上报文本消息(reportTextMessage)](#reportTextMessage)  
+21. [上报图片消息(reportPicMessage)](#reportPicMessage)  
+22. [上报文件消息(reportFileMessage)](#reportFileMessage)  
+23. [上报视频消息(reportVideoMessage)](#reportVideoMessage)  
+24. [上报语音消息(reportVoiceMessage)](#reportVoiceMessage)  
+25. [上报GIF表情消息(reportGifMessage)](#reportGifMessage)  
+26. [上报个人名片消息(reportCardMessage)](#reportCardMessage)  
+27. [上报位置消息(reportLocationMessage)](#reportLocationMessage)  
+28. [上报链接消息(网页或群邀请)(reportLinkMessage)](#reportLinkMessage)  
+29. [上报小程序消息(reportMiniMessage)](#reportMiniMessage)  
+30. [上报转账消息(reportTransferMessage)](#reportTransferMessage)  
+31. [上报无痕清理僵尸粉消息(reportZombieCheckMessage)](#reportZombieCheckMessage)  
+32. [上报解密图片消息(reportDecryptPicMessage)](#reportDecryptPicMessage)  
+33. [上报二维码付款消息(reportQrCodeWcPay)](#reportQrCodeWcPay)  
+34. [上报收藏列表(reportFavitems)](#reportFavitems)  
+35. [上报系统消息(reportSystemMessage)](#reportSystemMessage)  
+36. [上报其他消息(reportOtherMessage)](#reportOtherMessage)  
+37. [上报其他接收应用未知消息(reportOtherAppMessage)](#reportOtherAppMessage)  
 ### 请求相关
-39. [上报新的加好友请求(reportFriendAddRequest)](#reportFriendAddRequest)  
-40. [上报加好友指令返回状态(reportAddFriendMessage)](#reportAddFriendMessage)  
-41. [上报通过手机号/微信号/QQ号查询任意微信号信息(reportSearchContact)](#reportSearchContact)  
+38. [上报新的加好友请求(reportFriendAddRequest)](#reportFriendAddRequest)  
+39. [上报加好友指令返回状态(reportAddFriendMessage)](#reportAddFriendMessage)  
+40. [上报通过手机号/微信号/QQ号查询任意微信号信息(reportSearchContact)](#reportSearchContact)  
 ### 其他
-42. [上报数据库查询结果(reportSqlData)](#reportSqlData)  
-43. [上报扫描二维码结果(reportScanQrcodePic)](#reportScanQrcodePic)  
-44. [上报当前聊天对象改变(reportTalkerChange)](#reportTalkerChange)  
-45. [上报语音翻译结果(reportTransVoice)](#reportTransVoice)  
-46. [上报URL访问状态(reportCheckUrlStatus)](#reportCheckUrlStatus)  
-47. [上报上传客户端文件到服务端结果(resUploadFile)](#resUploadFile)  
+41. [上报数据库查询结果(reportSqlData)](#reportSqlData)  
+42. [上报扫描二维码结果(reportScanQrcodePic)](#reportScanQrcodePic)  
+43. [上报当前聊天对象改变(reportTalkerChange)](#reportTalkerChange)  
+44. [上报语音翻译结果(reportTransVoice)](#reportTransVoice)  
+45. [上报URL访问状态(reportCheckUrlStatus)](#reportCheckUrlStatus)  
+46. [上报上传客户端文件到服务端结果(resUploadFile)](#resUploadFile)  
 
 # send_msg
 二. 执行回调接口下发的指令: 这些指令包括:
@@ -517,29 +517,7 @@
 }
 ```
 
-### 12. <span id="">上报普通群成员昵称()</span>
-#### 参数说明
-|data中的参数| 参数的含义|
-|:----------|:---------|
-|chatRoom   |群的微信id|
-|wxid       |群成员的微信id|
-|chatNick   |群成员的群昵称(如果设置了备注,则显示为备注)|
-
-```json
-{
-    "data":{
-        "action":"",
-        "cwxid":"xxxxx",
-        "data":{
-            "chatRoom": "",
-            "wxid" : "",
-            "chatNick":"XXXX"
-        }
-    }
-}
-```
-
-### 13. <span id="reportImRooms">上报企业群列表(reportImRooms)</span>
+### 12. <span id="reportImRooms">上报企业群列表(reportImRooms)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
@@ -582,7 +560,7 @@
 }
 ```
 
-### 14. <span id="reportSingleChatRoomMembers">上报单个普通群成员信息(reportSingleChatRoomMembers)</span>
+### 13. <span id="reportSingleChatRoomMembers">上报单个普通群成员信息(reportSingleChatRoomMembers)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
@@ -628,13 +606,13 @@
 }
 ```
 
-### 15. <span id="reportSingleImRoomMembers">上报单个企业群成员信息(reportSingleImRoomMembers)</span>
+### 14. <span id="reportSingleImRoomMembers">上报单个企业群成员信息(reportSingleImRoomMembers)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
 |wxid        |群微信ID|
 |owner       |群主 ID|
-|nick        |群昵称|
+|nick        |群名|
 |headPic     |群头像|
 |roomCount   |群成员数量|
 
@@ -672,7 +650,7 @@
 }
 ```
 
-### 16. <span id="reportAcceptQrCodeChatRoom">上报通过二维码进群返回状态(reportAcceptQrCodeChatRoom)</span>
+### 15. <span id="reportAcceptQrCodeChatRoom">上报通过二维码进群返回状态(reportAcceptQrCodeChatRoom)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
@@ -692,7 +670,7 @@
 }
 ```
 
-### 17. <span id="reportChatRoomMemberAdd">上报群成员新增通知(reportChatRoomMemberAdd)</span>
+### 16. <span id="reportChatRoomMemberAdd">上报群成员新增通知(reportChatRoomMemberAdd)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
@@ -733,7 +711,7 @@
 }
 ```
 
-### 18. <span id="reportChatRoomMemberDel">上报群成员删除通知(reportChatRoomMemberDel)</span>
+### 17. <span id="reportChatRoomMemberDel">上报群成员删除通知(reportChatRoomMemberDel)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
@@ -772,7 +750,7 @@
 }
 ```
 
-### 19. <span id="reportNewChatRoom">上报检测到的新群通知(reportNewChatRoom)</span>
+### 18. <span id="reportNewChatRoom">上报检测到的新群通知(reportNewChatRoom)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
@@ -811,7 +789,7 @@
 }
 ```
 
-### 20. <span id="reportChatRoomQuit">上报退群或被踢通知(reportChatRoomQuit)</span>
+### 19. <span id="reportChatRoomQuit">上报退群或被踢通知(reportChatRoomQuit)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:-----------|:---------|
@@ -829,7 +807,7 @@
 }
 ```
 
-### 21. <span id="reportTextMessage">上报文本消息(reportTextMessage)</span>
+### 20. <span id="reportTextMessage">上报文本消息(reportTextMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -865,7 +843,7 @@
 }
 ```
 
-### 22. <span id="reportPicMessage">上报图片消息(reportPicMessage)</span>
+### 21. <span id="reportPicMessage">上报图片消息(reportPicMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -903,7 +881,7 @@
 }
 ```
 
-### 23. <span id="reportFileMessage">上报文件消息(reportFileMessage)</span>
+### 22. <span id="reportFileMessage">上报文件消息(reportFileMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -939,7 +917,7 @@
 }
 ```
 
-### 24. <span id="reportVideoMessage">上报视频消息(reportVideoMessage)</span>
+### 23. <span id="reportVideoMessage">上报视频消息(reportVideoMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -977,7 +955,7 @@
 }
 ```
 
-### 25. <span id="reportVoiceMessage">上报语音消息(reportVoiceMessage)</span>
+### 24. <span id="reportVoiceMessage">上报语音消息(reportVoiceMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1015,7 +993,7 @@
 }
 ```
 
-### 26. <span id="reportGifMessage">上报GIF表情消息(reportGifMessage)</span>
+### 25. <span id="reportGifMessage">上报GIF表情消息(reportGifMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1049,7 +1027,7 @@
 }
 ```
 
-### 27. <span id="reportCardMessage">上报个人名片消息(reportCardMessage)</span>
+### 26. <span id="reportCardMessage">上报个人名片消息(reportCardMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1083,7 +1061,7 @@
 }
 ```
 
-### 28. <span id="reportLocationMessage">上报位置消息(reportLocationMessage)</span>
+### 27. <span id="reportLocationMessage">上报位置消息(reportLocationMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1117,7 +1095,7 @@
 }
 ```
 
-### 29. <span id="reportLinkMessage">上报链接消息(网页或群邀请)(reportLinkMessage)</span>
+### 28. <span id="reportLinkMessage">上报链接消息(网页或群邀请)(reportLinkMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1151,7 +1129,7 @@
 }
 ```
 
-### 30. <span id="reportMiniMessage">上报小程序消息(reportMiniMessage)</span>
+### 29. <span id="reportMiniMessage">上报小程序消息(reportMiniMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1185,7 +1163,7 @@
 }
 ```
 
-### 31. <span id="reportTransferMessage">上报转账消息(reportTransferMessage)</span>
+### 30. <span id="reportTransferMessage">上报转账消息(reportTransferMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1224,7 +1202,7 @@
 }
 ```
 
-### 32. <span id="reportZombieCheckMessage">上报无痕清理僵尸粉消息(reportZombieCheckMessage)</span>
+### 31. <span id="reportZombieCheckMessage">上报无痕清理僵尸粉消息(reportZombieCheckMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1251,7 +1229,7 @@
 }
 ```
 
-### 33. <span id="reportDecryptPicMessage">上报解密图片消息(reportDecryptPicMessage)</span>
+### 32. <span id="reportDecryptPicMessage">上报解密图片消息(reportDecryptPicMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1273,7 +1251,7 @@
 }
 ```
 
-### 34. <span id="reportQrCodeWcPay">上报二维码付款消息(reportQrCodeWcPay)</span>
+### 33. <span id="reportQrCodeWcPay">上报二维码付款消息(reportQrCodeWcPay)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1301,7 +1279,7 @@
 }
 ```
 
-### 35. <span id="reportFavitems">上报收藏列表(reportFavitems)</span>
+### 34. <span id="reportFavitems">上报收藏列表(reportFavitems)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1329,7 +1307,7 @@
 }
 ```
 
-### 36. <span id="reportSystemMessage">上报系统消息(reportSystemMessage)</span>
+### 35. <span id="reportSystemMessage">上报系统消息(reportSystemMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1376,7 +1354,7 @@
     10.xxxxx通过扫描你分享的二维码加入群聊  
     11.xxxxx通过扫描xxxxxx分享的二维码加入群聊  
 
-### 37. <span id="reportOtherMessage">上报其他消息(reportOtherMessage)</span>
+### 36. <span id="reportOtherMessage">上报其他消息(reportOtherMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1410,7 +1388,7 @@
 }
 ```
 
-### 38. <span id="reportOtherAppMessage">上报其他接收应用未知消息(reportOtherAppMessage)</span>
+### 37. <span id="reportOtherAppMessage">上报其他接收应用未知消息(reportOtherAppMessage)</span>
 #### 参数说明
 |data中的参数| 参数的含义|
 |:----------|:---------|
@@ -1444,7 +1422,7 @@
 }
 ```
 
-### 39. <span id="reportFriendAddRequest">上报新的加好友请求(reportFriendAddRequest)</span>
+### 38. <span id="reportFriendAddRequest">上报新的加好友请求(reportFriendAddRequest)</span>
 #### 个别参数说明，未给出的则参考其他接口的说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1479,7 +1457,7 @@
 }
 ```
 
-### 40. <span id="reportAddFriendMessage">上报加好友指令返回状态(reportAddFriendMessage)</span>
+### 39. <span id="reportAddFriendMessage">上报加好友指令返回状态(reportAddFriendMessage)</span>
 #### 个别参数说明，未给出的则参考其他接口的说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1507,7 +1485,7 @@
 }
 ```
 
-### 41. <span id="reportSearchContact">上报通过手机号/微信号/QQ号查询任意微信号信息(reportSearchContact)</span>
+### 40. <span id="reportSearchContact">上报通过手机号/微信号/QQ号查询任意微信号信息(reportSearchContact)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1553,7 +1531,7 @@
 }
 ```
 
-### 42. <span id="reportSqlData">上报数据库查询结果(reportSqlData)</span>
+### 41. <span id="reportSqlData">上报数据库查询结果(reportSqlData)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1573,7 +1551,7 @@
 }
 ```
 
-### 43. <span id="reportScanQrcodePic">上报扫描二维码结果(reportScanQrcodePic)</span>
+### 42. <span id="reportScanQrcodePic">上报扫描二维码结果(reportScanQrcodePic)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1597,7 +1575,7 @@
 }
 ```
 
-### 44. <span id="reportTalkerChange">上报当前聊天对象改变(reportTalkerChange)</span>
+### 43. <span id="reportTalkerChange">上报当前聊天对象改变(reportTalkerChange)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1635,7 +1613,7 @@
 }
 ```
 
-### 45. <span id="reportTransVoice">上报语音翻译结果(reportTransVoice)</span>
+### 44. <span id="reportTransVoice">上报语音翻译结果(reportTransVoice)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1665,7 +1643,7 @@
 }
 ```
 
-### 46. <span id="reportCheckUrlStatus">上报URL访问状态(reportCheckUrlStatus)</span>
+### 45. <span id="reportCheckUrlStatus">上报URL访问状态(reportCheckUrlStatus)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -1687,7 +1665,7 @@
 }
 ```
 
-### 47. <span id="resUploadFile">上报上传客户端文件到服务端结果(resUploadFile)</span>
+### 46. <span id="resUploadFile">上报上传客户端文件到服务端结果(resUploadFile)</span>
 #### 参数说明
 |data中的参数|参数的含义|
 |:----------|:--------|
@@ -2057,25 +2035,7 @@
 }
 ```
 
-### 23. <span id="">获取普通群成员昵称()</span>
-#### 参数说明
-|option中的参数|参数的含义|
-|:------------|:--------|
-|chatroom     |群的微信id|
-|wxid         |群成员的微信id|
-
-```json
-{
-    "api" : "getChatRoomUserNick",
-    "sendId":"",
-    "option" : {
-        "chatroom":"",
-        "wxid":""
-    }
-}
-```
-
-### 24. <span id="getImRooms">获取企业群列表(getImRooms)</span>
+### 23. <span id="getImRooms">获取企业群列表(getImRooms)</span>
 #### 参数说明
 
 ```json
@@ -2086,7 +2046,7 @@
 }
 ```
 
-### 25. <span id="getSingleChatRoomMembers">获取单个普通群成员信息(getSingleChatRoomMembers)</span>
+### 24. <span id="getSingleChatRoomMembers">获取单个普通群成员信息(getSingleChatRoomMembers)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2102,7 +2062,7 @@
 }
 ```
 
-### 26. <span id="getSingleImRoomMembers">获取单个企业群成员信息(getSingleImRoomMembers)</span>
+### 25. <span id="getSingleImRoomMembers">获取单个企业群成员信息(getSingleImRoomMembers)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2118,7 +2078,7 @@
 }
 ```
 
-### 27. <span id="updateChatRoom">网络更新普通群成员信息(updateChatRoom)</span>
+### 26. <span id="updateChatRoom">网络更新普通群成员信息(updateChatRoom)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2134,7 +2094,7 @@
 }
 ```
 
-### 28. <span id="sendChatroomLow">发送40人以下群邀请(sendChatroomLow)</span>
+### 27. <span id="sendChatroomLow">发送40人以下群邀请(sendChatroomLow)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2155,7 +2115,7 @@
 }
 ```
 
-### 29. <span id="sendChatroomHigh">发送40人以上群邀请(sendChatroomHigh)</span>
+### 28. <span id="sendChatroomHigh">发送40人以上群邀请(sendChatroomHigh)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2176,7 +2136,7 @@
 }
 ```
 
-### 30. <span id="acceptChatroomInvite">接受群邀请(acceptChatroomInvite)</span>
+### 29. <span id="acceptChatroomInvite">接受群邀请(acceptChatroomInvite)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2194,7 +2154,7 @@
 }
 ```
 
-### 31. <span id="delChatRoomMembers">踢群成员(delChatRoomMembers)</span>
+### 30. <span id="delChatRoomMembers">踢群成员(delChatRoomMembers)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2215,7 +2175,7 @@
 }
 ```
 
-### 32. <span id="updateChatRoomName">修改群名称(updateChatRoomName)</span>
+### 31. <span id="updateChatRoomName">修改群名称(updateChatRoomName)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2233,7 +2193,7 @@
 }
 ```
 
-### 33. <span id="sendChatRoomNotice">修改群公告(sendChatRoomNotice)</span>
+### 32. <span id="sendChatRoomNotice">修改群公告(sendChatRoomNotice)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2251,7 +2211,7 @@
 }
 ```
 
-### 34. <span id="updateChatRoomDisplayName">修改我在本群的昵称(updateChatRoomDisplayName)</span>
+### 33. <span id="updateChatRoomDisplayName">修改我在本群的昵称(updateChatRoomDisplayName)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2269,7 +2229,7 @@
 }
 ```
 
-### 35. <span id="showDisplayName">是否显示群昵称(showDisplayName)</span>
+### 34. <span id="showDisplayName">是否显示群昵称(showDisplayName)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2287,7 +2247,7 @@
 }
 ```
 
-### 36. <span id="createChatRoom">创建群聊(createChatRoom)</span>
+### 35. <span id="createChatRoom">创建群聊(createChatRoom)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2303,7 +2263,7 @@
 }
 ```
 
-### 37. <span id="quitDelChatRoom">退出并删除群(quitDelChatRoom)</span>
+### 36. <span id="quitDelChatRoom">退出并删除群(quitDelChatRoom)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2319,7 +2279,7 @@
 }
 ```
 
-### 38. <span id="autoAcceptChatRoom">自动接受群邀请(autoAcceptChatRoom)</span>
+### 37. <span id="autoAcceptChatRoom">自动接受群邀请(autoAcceptChatRoom)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2335,7 +2295,7 @@
 }
 ```
 
-### 39. <span id="acceptQrcodeChatRoom">通过二维码进群(acceptQrcodeChatRoom)</span>
+### 38. <span id="acceptQrcodeChatRoom">通过二维码进群(acceptQrcodeChatRoom)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2351,7 +2311,7 @@
 }
 ```
 
-### 40. <span id="saveRoomToContact">保存到/移出通讯录(saveRoomToContact)</span>
+### 39. <span id="saveRoomToContact">保存到/移出通讯录(saveRoomToContact)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2369,7 +2329,7 @@
 }
 ```
 
-### 41. <span id="transAnyMessage">任意消息转发(transAnyMessage)</span>
+### 40. <span id="transAnyMessage">任意消息转发(transAnyMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2387,7 +2347,7 @@
 }
 ```
 
-### 42. <span id="sendTextMessage">发送文本消息(sendTextMessage)</span>
+### 41. <span id="sendTextMessage">发送文本消息(sendTextMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2405,7 +2365,7 @@
 }
 ```
 
-### 43. <span id="sendAtTextMessage">发送群内@文本消息(sendAtTextMessage)</span>
+### 42. <span id="sendAtTextMessage">发送群内@文本消息(sendAtTextMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2428,7 +2388,7 @@
 }
 ```
 
-### 44. <span id="sendPicMessage">发送图片(sendPicMessage)</span>
+### 43. <span id="sendPicMessage">发送图片(sendPicMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2449,7 +2409,7 @@
 }
 ```
 
-### 45. <span id="sendFileMessage">发送文件(sendFileMessage)</span>
+### 44. <span id="sendFileMessage">发送文件(sendFileMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2470,7 +2430,7 @@
 }
 ```
 
-### 46. <span id="sendVideoMessage">发送视频(sendVideoMessage)</span>
+### 45. <span id="sendVideoMessage">发送视频(sendVideoMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2491,7 +2451,7 @@
 }
 ```
 
-### 47. <span id="sendGifMessage">发送GIF表情(sendGifMessage)</span>
+### 46. <span id="sendGifMessage">发送GIF表情(sendGifMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2509,7 +2469,7 @@
 }
 ```
 
-### 48. <span id="sendLinkMessage">发送链接消息(sendLinkMessage)</span>
+### 47. <span id="sendLinkMessage">发送链接消息(sendLinkMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2533,7 +2493,7 @@
 }
 ```
 
-### 49. <span id="sendCardMessage">发送名片(sendCardMessage)</span>
+### 48. <span id="sendCardMessage">发送名片(sendCardMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2551,7 +2511,7 @@
 }
 ```
 
-### 50. <span id="sendMiniMessage">发送小程序(sendMiniMessage)</span>
+### 49. <span id="sendMiniMessage">发送小程序(sendMiniMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2569,7 +2529,7 @@
 }
 ```
 
-### 51. <span id="sendFavorite">发送收藏(sendFavorite)</span>
+### 50. <span id="sendFavorite">发送收藏(sendFavorite)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2587,7 +2547,7 @@
 }
 ```
 
-### 52. <span id="sendXmlMessage">发送xml消息(sendXmlMessage)</span>
+### 51. <span id="sendXmlMessage">发送xml消息(sendXmlMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2605,7 +2565,7 @@
 }
 ```
 
-### 53. <span id="sendCardXmlMessage">发送名片xml消息(sendCardXmlMessage)</span>
+### 52. <span id="sendCardXmlMessage">发送名片xml消息(sendCardXmlMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2623,7 +2583,7 @@
 }
 ```
 
-### 54. <span id="addPublic">关注公众号(addPublic)</span>
+### 53. <span id="addPublic">关注公众号(addPublic)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2641,7 +2601,7 @@
 }
 ```
 
-### 55. <span id="getFavorites">获取收藏列表(getFavorites)</span>
+### 54. <span id="getFavorites">获取收藏列表(getFavorites)</span>
 #### 参数说明
 
 ```json
@@ -2652,7 +2612,7 @@
 }
 ```
 
-### 56. <span id="addFavoriteFrom">收藏指定消息(addFavoriteFrom)</span>
+### 55. <span id="addFavoriteFrom">收藏指定消息(addFavoriteFrom)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2670,7 +2630,7 @@
 }
 ```
 
-### 57. <span id="transVoice">语音翻译(transVoice)</span>
+### 56. <span id="transVoice">语音翻译(transVoice)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2688,7 +2648,7 @@
 }
 ```
 
-### 58. <span id="zombieCheck">无痕清粉(zombieCheck)</span>
+### 57. <span id="zombieCheck">无痕清粉(zombieCheck)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2704,7 +2664,7 @@
 }
 ```
 
-### 59. <span id="decryptPic">解密图片(decryptPic)</span>
+### 58. <span id="decryptPic">解密图片(decryptPic)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2722,7 +2682,7 @@
 }
 ```
 
-### 60. <span id="unreadMsgCountChange">获取未读消息数量(unreadMsgCountChange)</span>
+### 59. <span id="unreadMsgCountChange">获取未读消息数量(unreadMsgCountChange)</span>
 #### 参数说明
 
 ```json
@@ -2733,7 +2693,7 @@
 }
 ```
 
-### 61. <span id="clearChatHistory">清理微信聊天记录(clearChatHistory)</span>
+### 60. <span id="clearChatHistory">清理微信聊天记录(clearChatHistory)</span>
 #### 参数说明
 
 ```json
@@ -2744,7 +2704,7 @@
 }
 ```
 
-### 62. <span id="scanQrcodePic">识别二维码(scanQrcodePic)</span>
+### 61. <span id="scanQrcodePic">识别二维码(scanQrcodePic)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2760,7 +2720,7 @@
 }
 ```
 
-### 63. <span id="modRecvNotify">开启/关闭消息免打扰(modRecvNotify)</span>
+### 62. <span id="modRecvNotify">开启/关闭消息免打扰(modRecvNotify)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2778,7 +2738,7 @@
 }
 ```
 
-### 64. <span id="chatSessionTop">置顶/取消置顶聊天(chatSessionTop)</span>
+### 63. <span id="chatSessionTop">置顶/取消置顶聊天(chatSessionTop)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2796,7 +2756,7 @@
 }
 ```
 
-### 65. <span id="openBrowser">打开内置浏览器(openBrowser)</span>
+### 64. <span id="openBrowser">打开内置浏览器(openBrowser)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2812,7 +2772,7 @@
 }
 ```
 
-### 66. <span id="disableRevoke">开启/关闭防撤回功能(disableRevoke)</span>
+### 65. <span id="disableRevoke">开启/关闭防撤回功能(disableRevoke)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2828,7 +2788,7 @@
 }
 ```
 
-### 67. <span id="checkUrlStatus">检测URL在微信中是否有效(checkUrlStatus)</span>
+### 66. <span id="checkUrlStatus">检测URL在微信中是否有效(checkUrlStatus)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2844,7 +2804,7 @@
 }
 ```
 
-### 68. <span id="getSqlData">查询微信数据库(getSqlData)</span>
+### 67. <span id="getSqlData">查询微信数据库(getSqlData)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2885,7 +2845,7 @@
 }
 ```
 
-### 69. <span id="closeProcess">关闭进程(closeProcess)</span>
+### 68. <span id="closeProcess">关闭进程(closeProcess)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2901,7 +2861,7 @@
 }
 ```
 
-### 70. <span id="uploadFile">把客户端所在PC的资料上传到指定服务器(uploadFile)</span>
+### 69. <span id="uploadFile">把客户端所在PC的资料上传到指定服务器(uploadFile)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2922,7 +2882,7 @@
 }
 ```
 
-### 71. <span id="downloadFile">下载资料到客户端所在PC(downloadFile)</span>
+### 70. <span id="downloadFile">下载资料到客户端所在PC(downloadFile)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
