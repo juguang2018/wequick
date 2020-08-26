@@ -2865,6 +2865,7 @@
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
+|cwxid        |当前登陆微信ID|
 |filepath     |本地文件地址（如：C:/work/demo.md）|
 |url          |文件上传的地址（如：http://xxx/upload）|
 
@@ -2876,6 +2877,7 @@
     "api":"uploadFile",
     "sendId":"",
     "option":{
+        "cwxid":"xxxx",
         "filepath":"",
         "url":""
     }
@@ -2886,6 +2888,7 @@
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
+|cwxid        |当前登陆微信ID|
 |url          |下载文件地址（如：http://xxx/test.txt）|
 
 ```json
@@ -2893,6 +2896,7 @@
     "api":"downloadFile",
     "sendId":"",
     "option":{
+        "wxid":"xxxxx",
         "url":""
     }
 }
