@@ -2896,7 +2896,7 @@
     "api":"downloadFile",
     "sendId":"",
     "option":{
-        "wxid":"xxxxx",
+        "cwxid":"xxxxx",
         "url":""
     }
 }
