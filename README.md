@@ -130,39 +130,38 @@
 38. [通过二维码进群(acceptQrcodeChatRoom)](#acceptQrcodeChatRoom)  
 39. [保存到/移出通讯录(saveRoomToContact)](#saveRoomToContact)  
 ### 消息相关
-40. [任意消息转发(transAnyMessage)](#transAnyMessage)  
-41. [发送文本消息(sendTextMessage)](#sendTextMessage)  
-42. [发送群内@文本消息(sendAtTextMessage)](#sendAtTextMessage)  
-43. [发送图片(sendPicMessage)](#sendPicMessage)  
-44. [发送文件(sendFileMessage)](#sendFileMessage)  
-45. [发送视频(sendVideoMessage)](#sendVideoMessage)  
-46. [发送GIF表情(sendGifMessage)](#sendGifMessage)  
-47. [发送链接消息(sendLinkMessage)](#sendLinkMessage)  
-48. [发送名片(sendCardMessage)](#sendCardMessage)  
-49. [发送小程序(sendMiniMessage)](#sendMiniMessage)  
-50. [发送收藏(sendFavorite)](#sendFavorite)  
-51. [发送xml消息(sendXmlMessage)](#sendXmlMessage)  
-52. [发送名片xml消息(sendCardXmlMessage)](#sendCardXmlMessage)  
+40. [发送文本消息(sendTextMessage)](#sendTextMessage)  
+41. [发送群内@文本消息(sendAtTextMessage)](#sendAtTextMessage)  
+42. [发送图片(sendPicMessage)](#sendPicMessage)  
+43. [发送文件(sendFileMessage)](#sendFileMessage)  
+44. [发送视频(sendVideoMessage)](#sendVideoMessage)  
+45. [发送GIF表情(sendGifMessage)](#sendGifMessage)  
+46. [发送链接消息(sendLinkMessage)](#sendLinkMessage)  
+47. [发送名片(sendCardMessage)](#sendCardMessage)  
+48. [发送小程序(sendMiniMessage)](#sendMiniMessage)  
+49. [发送收藏(sendFavorite)](#sendFavorite)  
+50. [发送xml消息(sendXmlMessage)](#sendXmlMessage)  
+51. [发送名片xml消息(sendCardXmlMessage)](#sendCardXmlMessage)  
 ### 请求相关
-53. [关注公众号(addPublic)](#addPublic)  
-54. [获取收藏列表(getFavorites)](#getFavorites)  
-55. [收藏指定消息(addFavoriteFrom)](#addFavoriteFrom)  
-56. [语音翻译(transVoice)](#transVoice)  
-57. [无痕清粉(zombieCheck)](#zombieCheck)  
-58. [解密图片(decryptPic)](#decryptPic)  
-59. [获取未读消息数量(unreadMsgCountChange)](#unreadMsgCountChange)  
-60. [清理微信聊天记录(clearChatHistory)](#clearChatHistory)  
+52. [关注公众号(addPublic)](#addPublic)  
+53. [获取收藏列表(getFavorites)](#getFavorites)  
+54. [收藏指定消息(addFavoriteFrom)](#addFavoriteFrom)  
+55. [语音翻译(transVoice)](#transVoice)  
+56. [无痕清粉(zombieCheck)](#zombieCheck)  
+57. [解密图片(decryptPic)](#decryptPic)  
+58. [获取未读消息数量(unreadMsgCountChange)](#unreadMsgCountChange)  
+59. [清理微信聊天记录(clearChatHistory)](#clearChatHistory)  
 ### 其他
-61. [识别二维码(scanQrcodePic)](#scanQrcodePic)  
-62. [开启/关闭消息免打扰(modRecvNotify)](#modRecvNotify)  
-63. [置顶/取消置顶聊天(chatSessionTop)](#chatSessionTop)  
-64. [打开内置浏览器(openBrowser)](#openBrowser)  
-65. [开启/关闭防撤回功能(disableRevoke)](#disableRevoke)  
-66. [检测URL在微信中是否有效(checkUrlStatus)](#checkUrlStatus)  
-67. [查询微信数据库(getSqlData)](#getSqlData)  
-68. [关闭进程(closeProcess)](#closeProcess)  
-69. [把客户端所在PC的资料上传到指定服务器(uploadFile)](#uploadFile)  
-70. [下载资料到客户端所在PC(downloadFile)](#downloadFile)  
+60. [识别二维码(scanQrcodePic)](#scanQrcodePic)  
+61. [开启/关闭消息免打扰(modRecvNotify)](#modRecvNotify)  
+62. [置顶/取消置顶聊天(chatSessionTop)](#chatSessionTop)  
+63. [打开内置浏览器(openBrowser)](#openBrowser)  
+64. [开启/关闭防撤回功能(disableRevoke)](#disableRevoke)  
+65. [检测URL在微信中是否有效(checkUrlStatus)](#checkUrlStatus)  
+66. [查询微信数据库(getSqlData)](#getSqlData)  
+67. [关闭进程(closeProcess)](#closeProcess)  
+68. [把客户端所在PC的资料上传到指定服务器(uploadFile)](#uploadFile)  
+69. [下载资料到客户端所在PC(downloadFile)](#downloadFile)  
 
 # receive_msg
 ## 参数说明
@@ -2329,25 +2328,7 @@
 }
 ```
 
-### 40. <span id="transAnyMessage">任意消息转发(transAnyMessage)</span>
-#### 参数说明
-|option中的参数|参数的含义|
-|:------------|:--------|
-|wxid         |要发送的对象的微信id|
-|msgid        |消息id|
-
-```json
-{
-    "api" : "transAnyMessage",
-    "sendId":"",
-    "option" : {
-        "wxid":"",
-        "msgid":""
-    }
-}
-```
-
-### 41. <span id="sendTextMessage">发送文本消息(sendTextMessage)</span>
+### 40. <span id="sendTextMessage">发送文本消息(sendTextMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2365,7 +2346,7 @@
 }
 ```
 
-### 42. <span id="sendAtTextMessage">发送群内@文本消息(sendAtTextMessage)</span>
+### 41. <span id="sendAtTextMessage">发送群内@文本消息(sendAtTextMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2388,7 +2369,7 @@
 }
 ```
 
-### 43. <span id="sendPicMessage">发送图片(sendPicMessage)</span>
+### 42. <span id="sendPicMessage">发送图片(sendPicMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2409,7 +2390,7 @@
 }
 ```
 
-### 44. <span id="sendFileMessage">发送文件(sendFileMessage)</span>
+### 43. <span id="sendFileMessage">发送文件(sendFileMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2430,7 +2411,7 @@
 }
 ```
 
-### 45. <span id="sendVideoMessage">发送视频(sendVideoMessage)</span>
+### 44. <span id="sendVideoMessage">发送视频(sendVideoMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2451,7 +2432,7 @@
 }
 ```
 
-### 46. <span id="sendGifMessage">发送GIF表情(sendGifMessage)</span>
+### 45. <span id="sendGifMessage">发送GIF表情(sendGifMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2469,7 +2450,7 @@
 }
 ```
 
-### 47. <span id="sendLinkMessage">发送链接消息(sendLinkMessage)</span>
+### 46. <span id="sendLinkMessage">发送链接消息(sendLinkMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2493,7 +2474,7 @@
 }
 ```
 
-### 48. <span id="sendCardMessage">发送名片(sendCardMessage)</span>
+### 47. <span id="sendCardMessage">发送名片(sendCardMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2511,7 +2492,7 @@
 }
 ```
 
-### 49. <span id="sendMiniMessage">发送小程序(sendMiniMessage)</span>
+### 48. <span id="sendMiniMessage">发送小程序(sendMiniMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2529,7 +2510,7 @@
 }
 ```
 
-### 50. <span id="sendFavorite">发送收藏(sendFavorite)</span>
+### 49. <span id="sendFavorite">发送收藏(sendFavorite)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2547,7 +2528,7 @@
 }
 ```
 
-### 51. <span id="sendXmlMessage">发送xml消息(sendXmlMessage)</span>
+### 50. <span id="sendXmlMessage">发送xml消息(sendXmlMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2565,7 +2546,7 @@
 }
 ```
 
-### 52. <span id="sendCardXmlMessage">发送名片xml消息(sendCardXmlMessage)</span>
+### 51. <span id="sendCardXmlMessage">发送名片xml消息(sendCardXmlMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2583,7 +2564,7 @@
 }
 ```
 
-### 53. <span id="addPublic">关注公众号(addPublic)</span>
+### 52. <span id="addPublic">关注公众号(addPublic)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2601,7 +2582,7 @@
 }
 ```
 
-### 54. <span id="getFavorites">获取收藏列表(getFavorites)</span>
+### 53. <span id="getFavorites">获取收藏列表(getFavorites)</span>
 #### 参数说明
 
 ```json
@@ -2612,7 +2593,7 @@
 }
 ```
 
-### 55. <span id="addFavoriteFrom">收藏指定消息(addFavoriteFrom)</span>
+### 54. <span id="addFavoriteFrom">收藏指定消息(addFavoriteFrom)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2630,7 +2611,7 @@
 }
 ```
 
-### 56. <span id="transVoice">语音翻译(transVoice)</span>
+### 55. <span id="transVoice">语音翻译(transVoice)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2648,7 +2629,7 @@
 }
 ```
 
-### 57. <span id="zombieCheck">无痕清粉(zombieCheck)</span>
+### 56. <span id="zombieCheck">无痕清粉(zombieCheck)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2664,7 +2645,7 @@
 }
 ```
 
-### 58. <span id="decryptPic">解密图片(decryptPic)</span>
+### 57. <span id="decryptPic">解密图片(decryptPic)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2682,7 +2663,7 @@
 }
 ```
 
-### 59. <span id="unreadMsgCountChange">获取未读消息数量(unreadMsgCountChange)</span>
+### 58. <span id="unreadMsgCountChange">获取未读消息数量(unreadMsgCountChange)</span>
 #### 参数说明
 
 ```json
@@ -2693,7 +2674,7 @@
 }
 ```
 
-### 60. <span id="clearChatHistory">清理微信聊天记录(clearChatHistory)</span>
+### 59. <span id="clearChatHistory">清理微信聊天记录(clearChatHistory)</span>
 #### 参数说明
 
 ```json
@@ -2704,7 +2685,7 @@
 }
 ```
 
-### 61. <span id="scanQrcodePic">识别二维码(scanQrcodePic)</span>
+### 60. <span id="scanQrcodePic">识别二维码(scanQrcodePic)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2720,7 +2701,7 @@
 }
 ```
 
-### 62. <span id="modRecvNotify">开启/关闭消息免打扰(modRecvNotify)</span>
+### 61. <span id="modRecvNotify">开启/关闭消息免打扰(modRecvNotify)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2738,7 +2719,7 @@
 }
 ```
 
-### 63. <span id="chatSessionTop">置顶/取消置顶聊天(chatSessionTop)</span>
+### 62. <span id="chatSessionTop">置顶/取消置顶聊天(chatSessionTop)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2756,7 +2737,7 @@
 }
 ```
 
-### 64. <span id="openBrowser">打开内置浏览器(openBrowser)</span>
+### 63. <span id="openBrowser">打开内置浏览器(openBrowser)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2772,7 +2753,7 @@
 }
 ```
 
-### 65. <span id="disableRevoke">开启/关闭防撤回功能(disableRevoke)</span>
+### 64. <span id="disableRevoke">开启/关闭防撤回功能(disableRevoke)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2788,7 +2769,7 @@
 }
 ```
 
-### 66. <span id="checkUrlStatus">检测URL在微信中是否有效(checkUrlStatus)</span>
+### 65. <span id="checkUrlStatus">检测URL在微信中是否有效(checkUrlStatus)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2804,7 +2785,7 @@
 }
 ```
 
-### 67. <span id="getSqlData">查询微信数据库(getSqlData)</span>
+### 66. <span id="getSqlData">查询微信数据库(getSqlData)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2845,7 +2826,7 @@
 }
 ```
 
-### 68. <span id="closeProcess">关闭进程(closeProcess)</span>
+### 67. <span id="closeProcess">关闭进程(closeProcess)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2861,7 +2842,7 @@
 }
 ```
 
-### 69. <span id="uploadFile">把客户端所在PC的资料上传到指定服务器(uploadFile)</span>
+### 68. <span id="uploadFile">把客户端所在PC的资料上传到指定服务器(uploadFile)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
@@ -2884,7 +2865,7 @@
 }
 ```
 
-### 70. <span id="downloadFile">下载资料到客户端所在PC(downloadFile)</span>
+### 69. <span id="downloadFile">下载资料到客户端所在PC(downloadFile)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
