@@ -130,7 +130,7 @@
 38. [通过二维码进群(acceptQrcodeChatRoom)](#acceptQrcodeChatRoom)  
 39. [保存到/移出通讯录(saveRoomToContact)](#saveRoomToContact)  
 ### 消息相关
-40. [任意消息转发(transAnyMessage)](#transAnyMessage)  
+40. (腾讯已不支持)[任意消息转发(transAnyMessage)](#transAnyMessage)  
 41. [发送文本消息(sendTextMessage)](#sendTextMessage)  
 42. [发送群内@文本消息(sendAtTextMessage)](#sendAtTextMessage)  
 43. [发送图片(sendPicMessage)](#sendPicMessage)  
@@ -2329,7 +2329,7 @@
 }
 ```
 
-### 40. <span id="transAnyMessage">任意消息转发(transAnyMessage)</span>
+### 40. <span id="transAnyMessage">（腾讯已失效）任意消息转发(transAnyMessage)</span>
 #### 参数说明
 |option中的参数|参数的含义|
 |:------------|:--------|
