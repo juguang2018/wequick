@@ -5,9 +5,6 @@
 ![alt logo](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png)
 
 ------
-**商务合作请加微信：abcdefg_12345654321**
-
-<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/xiaore.jpg" width="120" align=center/>
 
 **商务合作请加微信：DiscoveryUpup**
 
@@ -2901,10 +2898,6 @@
     }
 }
 ```
-
-**商务合作请加微信：abcdefg_12345654321**
-
-<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/xiaore.jpg" width="200" align=center/>
 
 **商务合作请加微信：DiscoveryUpup**
 
