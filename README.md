@@ -4,7 +4,7 @@
 # WeQuick 接口规范
 ![alt logo](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png)
 <a href="https://gitee.com/juguangzhongyu/wequick">
-<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png" width="120" align=center/>
+![alt logo]<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png" width="120" align=center/>
 </a>
 ------
 
