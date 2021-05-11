@@ -2,9 +2,8 @@
 # 适配所有类型个人微信号及版本
 # 支持傻瓜式二次开发
 # WeQuick 接口规范
-![alt logo](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png)
-![alt logo]<a href="https://gitee.com/juguangzhongyu/wequick">
-<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png" width="120" align=center/>
+<a href="https://gitee.com/juguangzhongyu/wequick">
+<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png" width="500" align=center/>
 </a>
 ------
 
