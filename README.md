@@ -2256,7 +2256,7 @@
     "api":"createChatRoom",
     "sendId":"",
     "option":{
-        "wxidLists":""
+        "wxidList":""
     }
 }
 ```
