@@ -2,10 +2,9 @@
 # 适配所有类型个人微信号及版本
 # 支持傻瓜式二次开发
 # WeQuick 接口规范
-<a href="https://gitee.com/juguangzhongyu/wequick">
-<img src="https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png" width="500" align=center/>
-</a>
+![alt logo](https://wequick-1257130190.cos.ap-shanghai.myqcloud.com/img/logo.png)
 
+------
 
 **商务合作请加微信：DiscoveryUpup**
 
@@ -81,7 +80,6 @@
 43. [上报当前聊天对象改变(reportTalkerChange)](#reportTalkerChange)  
 44. [上报语音翻译结果(reportTransVoice)](#reportTransVoice)  
 45. [上报URL访问状态(reportCheckUrlStatus)](#reportCheckUrlStatus)  
-46. [上报上传客户端文件到服务端结果(resUploadFile)](#resUploadFile)  
 
 # send_msg
 二. 执行回调接口下发的指令: 这些指令包括:
@@ -158,9 +156,7 @@
 65. [开启/关闭防撤回功能(disableRevoke)](#disableRevoke)  
 66. [检测URL在微信中是否有效(checkUrlStatus)](#checkUrlStatus)  
 67. [查询微信数据库(getSqlData)](#getSqlData)  
-68. [关闭进程(closeProcess)](#closeProcess)  
-69. [把客户端所在PC的资料上传到指定服务器(uploadFile)](#uploadFile)  
-70. [下载资料到客户端所在PC(downloadFile)](#downloadFile)  
+68. [关闭进程(closeProcess)](#closeProcess)   
 
 # receive_msg
 ## 参数说明
@@ -2256,7 +2252,7 @@
     "api":"createChatRoom",
     "sendId":"",
     "option":{
-        "wxidList":""
+        "wxidLists":""
     }
 }
 ```
