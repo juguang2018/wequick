@@ -75,7 +75,7 @@ def send_msg():
         # send_dict = {"api":"logout","sendId":"8859663","option":{}} 
 
         # 获取联系人
-        # send_dict = {"api":"getContact", "sendId":"8859663","option":{"flag":1}} 
+        # send_dict = {"api":"getContacts", "sendId":"8859663","option":{"flag":1}} 
 
         # 获取联系人 wxid
         # send_dict = {"api":"getUsersWxid", "sendId":"8859663","option":{}} 
