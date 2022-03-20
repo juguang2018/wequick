@@ -67,18 +67,12 @@ def send_msg():
       
         # 获取登录二维码
         # send_dict = {"api":"getLoginQrCode","sendId":"8859663","option":{}} 
-         
-        # 获取登陆状态
-        # send_dict = {"api":"getLoginStatus","sendId":"8859663","option":{}}   
         
         # 微信退出登录
         # send_dict = {"api":"logout","sendId":"8859663","option":{}} 
 
         # 获取联系人
-        # send_dict = {"api":"getContact", "sendId":"8859663","option":{"flag":1}} 
-
-        # 获取联系人 wxid
-        # send_dict = {"api":"getUsersWxid", "sendId":"8859663","option":{}} 
+        # send_dict = {"api":"getContacts", "sendId":"8859663","option":{"flag":1}} 
 
         # 通过wxid获取好友或公众号详细信息()       
         # send_dict = {"api":"getUsersInfo", "sendId":"8859663","option":{"wxidLists":["","","",""]}}
@@ -93,8 +87,6 @@ def send_msg():
         #send_dict = {"api":"sendTextMessage", "sendId":"8859663","option":{"wxid":"filehelper", "text":"\ue41d\ue14c\ue312\ue112[\u7ea2\u5305][\u9e21]\ue056\ue057\ue414\ue405\ue106\ue418\ue417\ue404\ue40a\ue105\ue402\ue108\ue058\ue407\ue401\ue40f\ue40b\ue406\ue413\ue411\ue410\ue059\ue416\ue408"}}
 
         # 发送图片
-        # 在线图片
-        #send_dict = {"api":"sendPicMessage", "sendId":"8859663","option":{"wxid":"filehelper", "imgPath":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2381272227,3301346360&fm=26&gp=0.jpg"}}           
         # 客户端所在PC本地图片地址
         #send_dict = {"api":"sendPicMessage", "sendId":"8859663","option":{"wxid":"filehelper", "imgPath":"C:\\图片\\029.jpg"}}
          
@@ -128,9 +120,6 @@ def send_msg():
 
         # 修改群备注名称(我在本群的昵称)
         #send_dict = {"api":"updateRoomAsName", "sendId":"8859663","option":{"chatroom":"xxxxx@chatroom", "name":"测试测试"}} 
-
-        # 加群成员为好友
-        #send_dict = {"api":"addRoomFriend","sendId":"8859663","option":{"chatroom":"xxxxx@chatroom","wxid":"xxxxx","noticeWord":"我是多啦A梦"}}
         
         # 创建群聊
         #send_dict = {"api":"createChatRoom","sendId":"8859663","option":{"wxidLists":['xxxx','xxxx','xxxxxx']}}
@@ -140,9 +129,6 @@ def send_msg():
 
         # 接受转账
         # send_dict = {"api":"acceptBankTransfer", "sendId":"8859663","option":{"transferid":"2132131232131232131", "wxid":"xxxxxx"}}
-
-        # 关闭进程
-        # send_dict = {"api":"closeProcess","sendId":"8859663","option":{"pid":pid}}
 
         res.append(send_dict)
         
